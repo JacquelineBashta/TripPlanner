@@ -2,6 +2,7 @@ from ast import Lambda
 from lib2to3.pgen2.token import VBAR
 from logging import root
 from multiprocessing.dummy import Array
+from textwrap import fill
 import tkinter as tk
 
 from tokenize import String
@@ -20,29 +21,31 @@ class TripPlanner:
         self.root.title(name)
         self.root.option_add('*Font', "Candara")
         self.root.resizable(width=False, height=True) # disable width resize
-    
-        self.frame = tk.Frame(self.root)
-        self.frame.pack(expand=True, fill=tk.BOTH)
-        
-        self.canvas=tk.Canvas( self.frame)
-        self.canvas.pack(expand=True,side=tk.LEFT,fill=tk.BOTH)
-        
-        self.vertibar=tk.Scrollbar(self.frame, orient=tk.VERTICAL,command=self.canvas.yview)
-        self.vertibar.pack(side=tk.RIGHT,fill=tk.Y)
+        self.root.geometry('1500x700')
 
-        self.canvas.configure(yscrollcommand=self.vertibar.set)
-        self.canvas.bind('<Configure>', lambda e:self.canvas.configure(scrollregion=self.canvas.bbox('all')))
-
-        self.main_frame = tk.Frame(self.canvas)
-        self.canvas.create_window((0,0), window=self.main_frame, anchor="nw")
-        
+        self.main_frame = self.Setup_Main_Frame()
         
         self.rows_array = []
         self.color = "lightgrey"
     
     def Setup_Main_Frame(self):
-        pass
-    
+        frame = tk.Frame(self.root)
+        frame.pack(expand=True, fill=tk.BOTH)
+        
+        canvas=tk.Canvas( frame)
+        canvas.pack(expand=True,side=tk.LEFT,fill=tk.BOTH)
+        
+        vertibar=tk.Scrollbar(frame, orient=tk.VERTICAL,command=canvas.yview)
+        vertibar.pack(side=tk.RIGHT,fill=tk.Y)
+
+        canvas.configure(yscrollcommand=vertibar.set)
+        canvas.bind('<Configure>', lambda e:canvas.configure(scrollregion=canvas.bbox('all')))
+
+        main_frame = tk.Frame(canvas)
+        canvas.create_window((0,0), window=main_frame, anchor="nw")
+        
+        return main_frame
+            
     ##############     BUTTONS     ########################
     def Save_Button(self):
         button_save = tk.Button(self.main_frame, text="Save", command=self.Save_2_File)
@@ -57,6 +60,10 @@ class TripPlanner:
     def Delete_Row_Button(self):
         button_delete_row = tk.Button(self.main_frame, text="Delete Row", command=self.Delete_Row_Entry)
         button_delete_row.pack()    
+
+    def Reload_Button(self):
+        button_reload = tk.Button(self.main_frame, text="Reload", command=self.Reload)
+        button_reload.pack()    
 
 
     ################      AddingFrames      ######################
@@ -100,7 +107,7 @@ class TripPlanner:
         self.Block_Entry(frame,row_dict, 8,"Misc","Weather","Currency","MobileData")
 
         self.rows_array.append(row_dict)
-    
+        
     def Delete_Row_Entry(self):
         pass
 
@@ -126,6 +133,11 @@ class TripPlanner:
                     self.rows_array[-1][key].delete(0,'end')
                     self.rows_array[-1][key].insert(0,value)
                 
+    def Reload(self):
+        self.Save_2_File()
+        self.root.destroy()
+        os.system('TripPlanner.py')
+
 
 ##############################  End of CLASS   ############################
 
@@ -145,6 +157,7 @@ def main():
     trip.Add_Row_Button()
     trip.Save_Button()
     trip.Delete_Row_Button()
+    trip.Reload_Button()
     
     
     
