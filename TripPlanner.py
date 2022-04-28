@@ -1,3 +1,6 @@
+from ast import Lambda
+from lib2to3.pgen2.token import VBAR
+from logging import root
 from multiprocessing.dummy import Array
 import tkinter as tk
 
@@ -16,32 +19,44 @@ class TripPlanner:
         self.root = tk.Tk()
         self.root.title(name)
         self.root.option_add('*Font', "Candara")
-        self.root.geometry('1100x500')
-        self.root.resizable(0, 1)
-        self.root.attributes('-toolwindow', True)
-        self.scrollbar = tk.Scrollbar(self.root)
-        self.scrollbar.pack( side = "right", fill = "y" )
+        self.root.resizable(width=False, height=True) # disable width resize
+    
+        self.frame = tk.Frame(self.root)
+        self.frame.pack(expand=True, fill=tk.BOTH)
+        
+        self.canvas=tk.Canvas( self.frame)
+        self.canvas.pack(expand=True,side=tk.LEFT,fill=tk.BOTH)
+        
+        self.vertibar=tk.Scrollbar(self.frame, orient=tk.VERTICAL,command=self.canvas.yview)
+        self.vertibar.pack(side=tk.RIGHT,fill=tk.Y)
 
+        self.canvas.configure(yscrollcommand=self.vertibar.set)
+        self.canvas.bind('<Configure>', lambda e:self.canvas.configure(scrollregion=self.canvas.bbox('all')))
+
+        self.main_frame = tk.Frame(self.canvas)
+        self.canvas.create_window((0,0), window=self.main_frame, anchor="nw")
+        
+        
         self.rows_array = []
         self.color = "lightgrey"
-
+    
+    def Setup_Main_Frame(self):
+        pass
+    
     ##############     BUTTONS     ########################
     def Save_Button(self):
-        button_save = tk.Button(self.root, text="Save", command=self.Save_2_File)
+        button_save = tk.Button(self.main_frame, text="Save", command=self.Save_2_File)
         #Dirty solution to place button side to side with "add Row2 botton, but it reply on the existance of the other button widget as pack"
         #button_save.place(relx =0.55,rely = 0.003)
         button_save.pack()
-        
 
     def Add_Row_Button(self):
-        button_add_row = tk.Button(self.root, text="Add Row", command=self.Row_Entry)
+        button_add_row = tk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
         button_add_row.pack()       
 
-
     def Delete_Row_Button(self):
-        button_delete_row = tk.Button(self.root, text="Delete Row", command=self.Delete_Row_Entry)
+        button_delete_row = tk.Button(self.main_frame, text="Delete Row", command=self.Delete_Row_Entry)
         button_delete_row.pack()    
-
 
 
     ################      AddingFrames      ######################
@@ -72,9 +87,7 @@ class TripPlanner:
         
         #Start with creating a frame to hold row info
         
-        frame = tk.Frame(self.root)
-        #frame = tk.Frame(self.root,yscrollcommand=self.scrollbar.set)
-        #self.scrollbar.configure(command=frame.yview)
+        frame = tk.Frame(self.main_frame)
         frame.configure(bg=self.color,bd=50)
         frame.pack()
 
