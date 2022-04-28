@@ -22,7 +22,7 @@ An example for integration into GitHub wikis is available here: https://github.c
 
 # Architecture Diagram
 
-![Diagram](https://raw.githubusercontent.com/JacquelineBashta/TripPlanner/main/Architecture/ArchitectureDiagram.png)
+![Diagram](ArchitectureDiagram.png)
 
 
 <a href="https://app.diagrams.net/#HJacquelineBashta%2FTripPlanner%2Fmain%2FArchitecture%2FArchitectureDiagram.png" target="_blank">Edit</a>
