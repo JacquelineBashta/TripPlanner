@@ -9,3 +9,7 @@ App to allow collecting trip planning information in one structure form, and per
 - [ ] add new block (weather,currency,simcard)
 - [ ] entries format check
 - [ ] Organize the buttons beautifully
+
+
+### GUI
+
