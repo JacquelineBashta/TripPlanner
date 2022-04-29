@@ -71,7 +71,7 @@ class TripPlanner:
         label.grid(row=self.current_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
-            entry = ttk.Entry(frame)
+            entry = ttk.Entry(frame,validate = 'key', validatecommand = vcmd)
             entry.insert(0,entry_name)
             entry.grid(row=self.current_row, column=column_num+1,padx=pad, pady=pad)
             row_dict[block_name+"_"+entry_name] = entry
@@ -121,19 +121,20 @@ class TripPlanner:
         
         with open('trip.json', "w+") as fout:
             json.dump(local_rows_dict, fout)
-            
+
+
     def Load_From_File(self):
         row_count = 1
         local_rows_dict = {}
         with open("trip.json", "r+") as read_file:
             temp_rows_dict = json.load(read_file)
+            # re-name the frame Ids as expected by tkinter
             for row in temp_rows_dict:
                 if row_count == 1:
                     local_rows_dict["!frame"] =  temp_rows_dict[row]
                 else:
                     local_rows_dict["!frame"+str(row_count)] =  temp_rows_dict[row]
                 row_count += 1
-            print(local_rows_dict)
             for row in local_rows_dict:
                 self.Row_Entry()
                 for key, value in local_rows_dict[row].items():
@@ -147,7 +148,6 @@ class TripPlanner:
 
 
     def Delete_Row(self, widget:Button):
-        #print(widget.master.focus_get())
         self.all_rows_dict.pop(widget.master.winfo_name())
         widget.master.destroy()
 
@@ -155,10 +155,6 @@ class TripPlanner:
 
 ###################   MAIN    ###################        
 def main():
-        
-    #from tkinter import Tk, font
-    #r = Tk() # you need a running tcl interpreter
-    #print(font.families())
 
     # Create object from the class Tripplanner
     trip = TripPlanner("Trip Planner App") 

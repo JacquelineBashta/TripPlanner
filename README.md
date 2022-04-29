@@ -8,6 +8,8 @@ App to allow collecting trip planning information in one structure form, and per
 - [x] removing row
 - [x] add new block (weather,currency,simcard)
 - [ ] entries format check
+- [ ] Logical Entry consistency checks
+    [ ] Time/date
 - [x] Organize the buttons beautifully
 
 
