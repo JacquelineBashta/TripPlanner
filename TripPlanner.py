@@ -4,7 +4,8 @@ from logging import root
 from multiprocessing.dummy import Array
 from textwrap import fill
 import tkinter as tk
-from tkinter import Button, ttk
+from tkinter import CENTER, LEFT, X, Button, StringVar, ttk
+from tkcalendar import DateEntry
 
 from tokenize import String
 from turtle import bgcolor
@@ -71,8 +72,17 @@ class TripPlanner:
         label.grid(row=self.current_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
-            entry = ttk.Entry(frame,validate = 'key', validatecommand = vcmd)
-            entry.insert(0,entry_name)
+            if entry_name == "Date":
+                entry = DateEntry(frame,selectmode='day')
+                
+            elif entry_name == "Time":
+                entry = ttk.Entry(frame)
+                entry.insert(0,"00:00")
+                
+            else:
+                entry = ttk.Entry(frame)
+                entry.insert(0,entry_name)
+            
             entry.grid(row=self.current_row, column=column_num+1,padx=pad, pady=pad)
             row_dict[block_name+"_"+entry_name] = entry
             
@@ -90,7 +100,7 @@ class TripPlanner:
         #Start with creating a frame to hold row info
         
         frame = tk.Frame(self.main_frame)
-        frame.configure(bg=self.color,bd=50)
+        frame.configure(bg=self.color, bd=3, relief="sunken", highlightthickness=2)
         frame.pack()
 
         
@@ -122,7 +132,6 @@ class TripPlanner:
         with open('trip.json', "w+") as fout:
             json.dump(local_rows_dict, fout)
 
-
     def Load_From_File(self):
         row_count = 1
         local_rows_dict = {}
@@ -145,7 +154,6 @@ class TripPlanner:
         self.Save_2_File()
         self.root.destroy()
         os.system('TripPlanner.py')
-
 
     def Delete_Row(self, widget:Button):
         self.all_rows_dict.pop(widget.master.winfo_name())
