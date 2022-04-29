@@ -4,7 +4,7 @@ from logging import root
 from multiprocessing.dummy import Array
 from textwrap import fill
 import tkinter as tk
-from tkinter import ttk
+from tkinter import Button, ttk
 
 from tokenize import String
 from turtle import bgcolor
@@ -23,10 +23,7 @@ class TripPlanner:
         self.root.option_add('*Font', "Candara")
         self.root.resizable(width=False, height=True) # disable width resize
         self.root.geometry('1600x700')
-
         self.main_frame = self.Setup_Main_Frame()
-        
-        
         self.all_rows_dict = {}
         self.color = "lightgrey"
         
@@ -47,8 +44,8 @@ class TripPlanner:
         canvas.create_window((0,0), window=main_frame, anchor="nw")
         
         return main_frame
-            
-    ##############     BUTTONS     ########################
+
+    ##############      BUTTONS     ########################
     def Save_Button(self):
         button_save = ttk.Button(self.main_frame, text="Save", command=self.Save_2_File)
         #Dirty solution to place button side to side with "add Row2 botton, but it reply on the existance of the other button widget as pack"
@@ -63,9 +60,8 @@ class TripPlanner:
     def Reload_Button(self):
         button_reload = ttk.Button(self.main_frame, text="Reload", command=self.Reload)
         button_reload.place(relx =0.75,rely = 0)
-        #button_reload.pack()    
-
-
+        #button_reload.pack()      
+        
     ################      AddingFrames      ######################
     def Block_Entry(self,frame,row_dict, column_num:int, block_name:String, *entry_names ):
         pad = 5
@@ -84,7 +80,6 @@ class TripPlanner:
             
         self.current_row= 0
     
-
     def Row_Entry(self):
         # Toggle rows color for better ux
         if self.color == "lightgrey":
@@ -106,36 +101,44 @@ class TripPlanner:
         self.Block_Entry(frame,row_dict, 6,"Stay","Where","LinkForOffer","Price")
         self.Block_Entry(frame,row_dict, 8,"Misc","Weather","Currency","MobileData")
         
-        button_delete_row = DeleteButton(frame, text="Delete Row")
+        button_delete_row = ttk.Button(frame, text="Delete Row")
+        button_delete_row.config(command=lambda: self.Delete_Row(button_delete_row))
         button_delete_row.grid(row=self.current_row,rowspan=3, column=10)
         
         self.all_rows_dict[frame.winfo_name()]= row_dict      
 
-
     ###################   Save/Load/Reload    ###################
     def Save_2_File(self):
                
-        local_rows_array={}
+        local_rows_dict ={}
         
         for row in self.all_rows_dict:
             local_row_dict = {}            
             for entry in self.all_rows_dict[row]:
                 local_row_dict[entry]=self.all_rows_dict[row][entry].get()
                 
-            local_rows_array[row]=local_row_dict
+            local_rows_dict[row]=local_row_dict
         
         with open('trip.json', "w+") as fout:
-            json.dump(local_rows_array, fout)
+            json.dump(local_rows_dict, fout)
             
     def Load_From_File(self):
+        row_count = 1
+        local_rows_dict = {}
         with open("trip.json", "r+") as read_file:
-            emps = json.load(read_file)
-            for row in emps:
+            temp_rows_dict = json.load(read_file)
+            for row in temp_rows_dict:
+                if row_count == 1:
+                    local_rows_dict["!frame"] =  temp_rows_dict[row]
+                else:
+                    local_rows_dict["!frame"+str(row_count)] =  temp_rows_dict[row]
+                row_count += 1
+            print(local_rows_dict)
+            for row in local_rows_dict:
                 self.Row_Entry()
-                for key, value in row.items():
-                    #self.all_rows_dict[row][key].delete(0,'end')
-                    #self.all_rows_dict[row][key].insert(0,value)
-                    pass
+                for key, value in local_rows_dict[row].items():
+                    self.all_rows_dict[row][key].delete(0,'end')
+                    self.all_rows_dict[row][key].insert(0,value)
                 
     def Reload(self):
         self.Save_2_File()
@@ -143,18 +146,12 @@ class TripPlanner:
         os.system('TripPlanner.py')
 
 
+    def Delete_Row(self, widget:Button):
+        #print(widget.master.focus_get())
+        self.all_rows_dict.pop(widget.master.winfo_name())
+        widget.master.destroy()
+
 ##############################  End of CLASS   ############################
-
-class DeleteButton(ttk.Button):
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.configure(command=self.callback)
-
-    def callback(self):
-        print(self.master.focus_get())
-        self.master.destroy()
-        
 
 ###################   MAIN    ###################        
 def main():
@@ -170,8 +167,7 @@ def main():
     trip.Add_Row_Button()
     trip.Save_Button()
     trip.Reload_Button()
-    
-    
+        
     
     # if trip file exist, load from file
     if os.path.exists("trip.json"):

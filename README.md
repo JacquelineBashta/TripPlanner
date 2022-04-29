@@ -4,11 +4,11 @@ App to allow collecting trip planning information in one structure form, and per
 ## TODO
  
 ### Features
-- [ ] Scrolling option
-- [ ] removing row
-- [ ] add new block (weather,currency,simcard)
+- [x] Scrolling option
+- [x] removing row
+- [x] add new block (weather,currency,simcard)
 - [ ] entries format check
-- [ ] Organize the buttons beautifully
+- [x] Organize the buttons beautifully
 
 
 ### GUI
