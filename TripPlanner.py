@@ -4,6 +4,7 @@ from logging import root
 from multiprocessing.dummy import Array
 from textwrap import fill
 import tkinter as tk
+from tkinter import ttk
 
 from tokenize import String
 from turtle import bgcolor
@@ -21,49 +22,48 @@ class TripPlanner:
         self.root.title(name)
         self.root.option_add('*Font', "Candara")
         self.root.resizable(width=False, height=True) # disable width resize
-        self.root.geometry('1500x700')
+        self.root.geometry('1600x700')
 
         self.main_frame = self.Setup_Main_Frame()
         
-        self.rows_array = []
+        
+        self.all_rows_dict = {}
         self.color = "lightgrey"
-    
+        
     def Setup_Main_Frame(self):
-        frame = tk.Frame(self.root)
+        frame = ttk.Frame(self.root)
         frame.pack(expand=True, fill=tk.BOTH)
         
         canvas=tk.Canvas( frame)
         canvas.pack(expand=True,side=tk.LEFT,fill=tk.BOTH)
         
-        vertibar=tk.Scrollbar(frame, orient=tk.VERTICAL,command=canvas.yview)
+        vertibar=ttk.Scrollbar(frame, orient=tk.VERTICAL,command=canvas.yview)
         vertibar.pack(side=tk.RIGHT,fill=tk.Y)
 
         canvas.configure(yscrollcommand=vertibar.set)
         canvas.bind('<Configure>', lambda e:canvas.configure(scrollregion=canvas.bbox('all')))
 
-        main_frame = tk.Frame(canvas)
+        main_frame = ttk.Frame(canvas)
         canvas.create_window((0,0), window=main_frame, anchor="nw")
         
         return main_frame
             
     ##############     BUTTONS     ########################
     def Save_Button(self):
-        button_save = tk.Button(self.main_frame, text="Save", command=self.Save_2_File)
+        button_save = ttk.Button(self.main_frame, text="Save", command=self.Save_2_File)
         #Dirty solution to place button side to side with "add Row2 botton, but it reply on the existance of the other button widget as pack"
-        #button_save.place(relx =0.55,rely = 0.003)
-        button_save.pack()
+        button_save.place(relx =0.65,rely = 0)
+        #button_save.pack()
 
     def Add_Row_Button(self):
-        button_add_row = tk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
-        button_add_row.pack()       
-
-    def Delete_Row_Button(self):
-        button_delete_row = tk.Button(self.main_frame, text="Delete Row", command=self.Delete_Row_Entry)
-        button_delete_row.pack()    
+        button_add_row = ttk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
+        #button_add_row.place(relx =0.55,rely = 0)
+        button_add_row.pack()           
 
     def Reload_Button(self):
-        button_reload = tk.Button(self.main_frame, text="Reload", command=self.Reload)
-        button_reload.pack()    
+        button_reload = ttk.Button(self.main_frame, text="Reload", command=self.Reload)
+        button_reload.place(relx =0.75,rely = 0)
+        #button_reload.pack()    
 
 
     ################      AddingFrames      ######################
@@ -71,11 +71,11 @@ class TripPlanner:
         pad = 5
         entry_count = len(entry_names)
         
-        label = tk.Label(frame, text=block_name)
+        label = ttk.Label(frame, text=block_name)
         label.grid(row=self.current_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
-            entry = tk.Entry(frame)
+            entry = ttk.Entry(frame)
             entry.insert(0,entry_name)
             entry.grid(row=self.current_row, column=column_num+1,padx=pad, pady=pad)
             row_dict[block_name+"_"+entry_name] = entry
@@ -105,21 +105,24 @@ class TripPlanner:
         self.Block_Entry(frame,row_dict, 4,"By","MeansOfTransport","LinkForOffer","Price")
         self.Block_Entry(frame,row_dict, 6,"Stay","Where","LinkForOffer","Price")
         self.Block_Entry(frame,row_dict, 8,"Misc","Weather","Currency","MobileData")
-
-        self.rows_array.append(row_dict)
         
-    def Delete_Row_Entry(self):
-        pass
+        button_delete_row = DeleteButton(frame, text="Delete Row")
+        button_delete_row.grid(row=self.current_row,rowspan=3, column=10)
+        
+        self.all_rows_dict[frame.winfo_name()]= row_dict      
 
 
-    ###################   Save/Load to File    ###################
+    ###################   Save/Load/Reload    ###################
     def Save_2_File(self):
-        local_rows_array=[]
-        for row in self.rows_array:
-            local_row_dict = {}
-            for entry in row:
-                local_row_dict[entry]=row[entry].get()
-            local_rows_array.append(local_row_dict)
+               
+        local_rows_array={}
+        
+        for row in self.all_rows_dict:
+            local_row_dict = {}            
+            for entry in self.all_rows_dict[row]:
+                local_row_dict[entry]=self.all_rows_dict[row][entry].get()
+                
+            local_rows_array[row]=local_row_dict
         
         with open('trip.json', "w+") as fout:
             json.dump(local_rows_array, fout)
@@ -130,8 +133,9 @@ class TripPlanner:
             for row in emps:
                 self.Row_Entry()
                 for key, value in row.items():
-                    self.rows_array[-1][key].delete(0,'end')
-                    self.rows_array[-1][key].insert(0,value)
+                    #self.all_rows_dict[row][key].delete(0,'end')
+                    #self.all_rows_dict[row][key].insert(0,value)
+                    pass
                 
     def Reload(self):
         self.Save_2_File()
@@ -141,7 +145,16 @@ class TripPlanner:
 
 ##############################  End of CLASS   ############################
 
+class DeleteButton(ttk.Button):
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.configure(command=self.callback)
 
+    def callback(self):
+        print(self.master.focus_get())
+        self.master.destroy()
+        
 
 ###################   MAIN    ###################        
 def main():
@@ -156,7 +169,6 @@ def main():
     # Insert basic buttons
     trip.Add_Row_Button()
     trip.Save_Button()
-    trip.Delete_Row_Button()
     trip.Reload_Button()
     
     
