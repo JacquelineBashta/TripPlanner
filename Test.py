@@ -23,13 +23,9 @@ ww.pack()
 e = Entry(ww)
 e.pack()
 
-cal=DateEntry(ww,selectmode='day')
-
-cal.pack()
-
 reg = root.register(callback)
   
-e.config(validate ="focus", 
+e.config(validate ="focusout", 
          validatecommand =(reg, '%P'),invalidcommand=lambda: messagebox.showerror("Error", "you are stupid!, don't try again ever"))
   
 root.mainloop()

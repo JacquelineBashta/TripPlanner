@@ -1,18 +1,12 @@
 from ast import Lambda
-from lib2to3.pgen2.token import VBAR
-from logging import root
-from multiprocessing.dummy import Array
-from textwrap import fill
 import tkinter as tk
-from tkinter import CENTER, LEFT, X, Button, StringVar, ttk
+from tkinter import ttk
 from tkcalendar import DateEntry
-
-from tokenize import String
-from turtle import bgcolor
-from typing import List
 
 import json
 import os.path
+
+from RowEntry import RowEntry
 
 ##############################  Start of CLASS   ############################
 class TripPlanner:
@@ -64,7 +58,7 @@ class TripPlanner:
         #button_reload.pack()      
         
     ################      AddingFrames      ######################
-    def Block_Entry(self,frame,row_dict, column_num:int, block_name:String, *entry_names ):
+    def Block_Entry(self,frame,row_dict, column_num:int, block_name:str, *entry_names ):
         pad = 5
         entry_count = len(entry_names)
         
@@ -107,8 +101,8 @@ class TripPlanner:
         row_dict = {}
         self.Block_Entry(frame,row_dict, 0,"From","Location","Date","Time")
         self.Block_Entry(frame,row_dict, 2,"To","Location","Date","Time")
-        self.Block_Entry(frame,row_dict, 4,"By","MeansOfTransport","LinkForOffer","Price")
-        self.Block_Entry(frame,row_dict, 6,"Stay","Where","LinkForOffer","Price")
+        self.Block_Entry(frame,row_dict, 4,"By","MeansOfTransport","LinkForOffer","Cost")
+        self.Block_Entry(frame,row_dict, 6,"Stay","Where","LinkForOffer","Cost")
         self.Block_Entry(frame,row_dict, 8,"Misc","Weather","Currency","MobileData")
         
         button_delete_row = ttk.Button(frame, text="Delete Row")
@@ -128,9 +122,54 @@ class TripPlanner:
                 local_row_dict[entry]=self.all_rows_dict[row][entry].get()
                 
             local_rows_dict[row]=local_row_dict
+            
+        self.Validate_Content()
         
         with open('trip.json', "w+") as fout:
             json.dump(local_rows_dict, fout)
+        
+    def Validate_Content(self):
+        # Row Data
+        #"From_Location","From_Date","From_Time"
+        #"To_Location","To_Date","To_Time"
+        #"By_MeansOfTransport","By_LinkForOffer","By_Cost")
+        #"Stay_Where","Stay_LinkForOffer","Stay_Cost")
+        #"Misc_Weather","Misc_Currency","Misc_MobileData")
+        
+        print("Validating...")
+        previous_row = None
+        current_row = None
+        
+        
+        for row in self.all_rows_dict:
+            current_row = RowEntry(self.all_rows_dict[row])
+            
+            # for each row validate entries not having default values
+            
+            if previous_row != None:
+                #1) current entry to_location == previous entry from_location
+                if current_row.From_Location != previous_row.To_Location:
+                    
+                    print("Error: current Location "+ current_row.From_Location + \
+                        " and previous location "+ previous_row.To_Location + \
+                            " doesn't match")
+                    #if current entry date to_date > previous from_date
+                        # check stay exist
+                    
+                    #else if current entry date == previous 
+                        # check time difference > defined_time_frame (e.g. 2h)
+
+                
+                #2) change mean of transportation to dropdown -> default=None:
+                      # based on the transportaion change the defined_time_frame
+                
+                #3) label summary to collect total time dates / days in each city / total cost
+                
+                #if self.all_rows_dict[current_row][self.entry_enum.From_Location].get() == \
+                #        self.all_rows_dict[previous_row][self.entry_enum.From_Location].get():
+                #    print("Error: "+self.all_rows_dict[current_row]["From_Location"].get())
+
+            previous_row = RowEntry(self.all_rows_dict[row])
 
     def Load_From_File(self):
         row_count = 1
@@ -155,7 +194,7 @@ class TripPlanner:
         self.root.destroy()
         os.system('TripPlanner.py')
 
-    def Delete_Row(self, widget:Button):
+    def Delete_Row(self, widget:ttk.Button):
         self.all_rows_dict.pop(widget.master.winfo_name())
         widget.master.destroy()
 
