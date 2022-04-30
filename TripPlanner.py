@@ -19,9 +19,9 @@ class TripPlanner:
         self.current_row = 0
         self.root = tk.Tk()
         self.root.title(name)
-        self.root.option_add('*Font', "Candara")
         self.root.resizable(width=False, height=True) # disable width resize
-        self.root.geometry('1600x700')
+        self.root.geometry('1200x700')
+        self.register_validation = self.root.register(self.Validation)
         self.main_frame = self.Setup_Main_Frame()
         self.all_rows_dict = {}
         self.color = "lightgrey"
@@ -44,6 +44,11 @@ class TripPlanner:
         
         return main_frame
 
+    def Validation(self,input):
+        self.Formate_Validate_Content()
+        self.Logical_Validate_Content()
+        self.Update_Summary()  
+        
     ##############      BUTTONS     ########################
     def Save_Button(self):
         button_save = ttk.Button(self.main_frame, text="Save", command=self.Save_2_File)
@@ -70,6 +75,7 @@ class TripPlanner:
         label.grid(row=self.current_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
+            
             if entry_name == "Date":
                 entry = DateEntry(frame,selectmode='day')
                 
@@ -82,6 +88,8 @@ class TripPlanner:
                 entry.insert(0,entry_name)
             
             entry.grid(row=self.current_row, column=column_num+1,padx=pad, pady=pad)
+            entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'))
+            
             row_dict[block_name+"_"+entry_name] = entry
             
             self.current_row +=1
@@ -126,13 +134,16 @@ class TripPlanner:
                 local_row_dict[entry]=self.all_rows_dict[row][entry].get()
                 
             local_rows_dict[row]=local_row_dict
-            
-        self.Validate_Content()
-        
+          
         with open('trip.json', "w+") as fout:
             json.dump(local_rows_dict, fout)
-        
-    def Validate_Content(self):
+    
+    def Formate_Validate_Content(self):
+        pass
+    def Update_Summary(self):
+        pass
+    
+    def Logical_Validate_Content(self):
         # Row Data
         #"From_Location","From_Date","From_Time"
         #"To_Location","To_Date","To_Time"
@@ -251,6 +262,7 @@ def main():
         #else create new trip        
         trip.Row_Entry()
 
+    
     
     # Run forever!
     trip.root.mainloop()

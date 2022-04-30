@@ -15,9 +15,9 @@ App to allow collecting trip planning information in one structure form, and per
     - [x] based on the transportaion change the TRANSITION_TIME
     - [ ] Change mean of transportation to dropdown -> default=None
 
-- [x] Organize the buttons beautifully
 - [ ] label summary to collect total time dates / days in each city / total cost
 
-
 ### GUI
-
+- [x] Organize the buttons beautifully
+- [ ] Add label to each entry
+- [ ] Add frame/boarder for each block
