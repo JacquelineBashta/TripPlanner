@@ -47,9 +47,17 @@ class TripPlanner:
         return main_frame
 
     def Validation(self,input):
+        
+        print("Validating...")
+
         self.Formate_Validate_Content()
         self.Logical_Validate_Content()
+        
+        print("Updating Summary...")
+
         self.Update_Summary()  
+        
+        print("^_^")
         
     ##############      BUTTONS     ########################
     def Save_Button(self):
@@ -60,8 +68,8 @@ class TripPlanner:
 
     def Add_Row_Button(self):
         button_add_row = ttk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
-        button_add_row.place(relx =0.55,rely = 0)
-        #button_add_row.pack()           
+        #button_add_row.place(relx =0.55,rely = 0)
+        button_add_row.pack()           
 
     def Reload_Button(self):
         button_reload = ttk.Button(self.main_frame, text="Reload", command=self.Reload)
@@ -167,34 +175,48 @@ class TripPlanner:
         pass
     
     def Update_Summary(self):
+
         total_cost = 0
+        trip_in_glance = ""
         
-        for row in self.all_rows_dict:
-            new_row = RowEntry(self.all_rows_dict[row])
-            total_cost += new_row.Get_By_Cost()
-            total_cost += new_row.Get_Stay_Cost()
-        
-        
-        self.label_trip_cost_value.config(text = str(total_cost) +" €") 
-        self.label_trip_duration_value.config(text = "2")
-        self.label_trip_in_glance_value.config(text = "5")
-    
-    def Logical_Validate_Content(self):
-        # Row Data
-        #"From_Location","From_Date","From_Time"
-        #"To_Location","To_Date","To_Time"
-        #"By_MeansOfTransport","By_LinkForOffer","By_Cost")
-        #"Stay_Where","Stay_LinkForOffer","Stay_Cost")
-        #"Misc_Weather","Misc_Currency","Misc_MobileData")
-        
-        print("Validating...")
         previous_row = None
         current_row = None
         
+        # collect label_trip_duration_value
+        first_row = RowEntry(list(self.all_rows_dict.values())[0])
+        last_row = RowEntry(list(self.all_rows_dict.values())[-1])
+
+        start_date = first_row.Get_From_DateTime()
+        end_date = last_row.Get_To_DateTime()
+        duration = (end_date - start_date).days
+
+
+        for row in self.all_rows_dict:
+            current_row = RowEntry(self.all_rows_dict[row])
+            # collect label_trip_cost_value
+            total_cost += current_row.Get_By_Cost()
+            total_cost += current_row.Get_Stay_Cost()
+
+            # collect label_trip_in_glance_value
+            if previous_row != None:
+                if current_row.Get_From_DateTime().date() > previous_row.Get_To_DateTime().date():
+                    diff = current_row.Get_From_DateTime().date() - previous_row.Get_To_DateTime().date()
+                    trip_in_glance += previous_row.To_Location +" for "+ str(diff.days) +" Days \n"
+            
+            previous_row = RowEntry(self.all_rows_dict[row])
+
+
+        self.label_trip_cost_value.config(text = str(total_cost) +" €") 
+        self.label_trip_duration_value.config(text = "Start: "+ str(start_date) + "\nEnd:   "+ str(end_date) + "\nDuration: " + str(duration) + " Days \n")
+        self.label_trip_in_glance_value.config(text = trip_in_glance)
+    
+    def Logical_Validate_Content(self):
+        previous_row = None
+        current_row = None
         
         for row in self.all_rows_dict:
             current_row = RowEntry(self.all_rows_dict[row])
-            
+      
             # for each row validate entries not having default values
             
             if previous_row != None:
@@ -205,19 +227,19 @@ class TripPlanner:
                         " and previous location "+ previous_row.To_Location + \
                             " doesn't match")
                     
-                #if current entry date to_date > previous from_date, check stay exist
-                if current_row.From_Date < previous_row.To_Date:
+                #if current entry date from_date < previous to_date, check stay exist
+                if current_row.Get_From_DateTime().date() < previous_row.Get_To_DateTime().date():
                     VL.validation_log("Added date " + current_row.From_Date+ " is in the past wrt "+ previous_row.To_Date)
                         
-                elif current_row.From_Date > previous_row.To_Date:
-                    if previous_row.Stay_Where == "" or previous_row.Stay_Where == "Stay_Where" :
+                elif current_row.Get_From_DateTime().date() > previous_row.Get_To_DateTime().date():
+                    if previous_row.Stay_Where == "" or previous_row.Stay_Where == "Where" :
                         VL.validation_log("you should stay some where! , find a stay in "+previous_row.To_Location)
                     
                     #else if current entry date == previous 
                         # check time difference > defined_time_frame (e.g. 2h)
                 else :
-                    diff_minutes = ( current_row.Get_From_Time() - previous_row.Get_To_Time()).total_seconds()/ 60 
-                    
+                    diff_minutes = ( current_row.Get_From_DateTime() - previous_row.Get_To_DateTime()).total_seconds()/ 60 
+
                     #based on the transportaion change the TRANSITION_TIME
                     if current_row.By_MeansOfTransport == "Flight":
                         transition_time = TRANSITION_TIME_FLIGHT
@@ -252,7 +274,7 @@ class TripPlanner:
     def Reload(self):
         self.Save_2_File()
         self.root.destroy()
-        os.system('TripPlanner.py')
+        os.system('main.py')
 
     def Delete_Row(self, widget:ttk.Button):
         self.all_rows_dict.pop(widget.master.winfo_name())

@@ -8,14 +8,13 @@ def main():
     # Create object from the class Tripplanner
     trip = TripPlanner("Trip Planner App") 
 
-    # Insert summary frame
-    trip.Add_Summary_Frame()
-    
     # Insert basic buttons
     trip.Add_Row_Button()
     trip.Save_Button()
     trip.Reload_Button()
-        
+    
+    # Insert summary frame
+    trip.Add_Summary_Frame()
     
     # if trip file exist, load from file
     if os.path.exists("trip.json"):

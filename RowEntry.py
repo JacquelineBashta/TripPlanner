@@ -40,11 +40,13 @@ class RowEntry:
             self.Misc_Currency = ""
             self.Misc_MobileData = ""  
 
-         def Get_To_Time(self):     
-            return datetime(hour=int(self.To_Time.split(":")[0]), minute=int(self.To_Time.split(":")[1]) ,year=2022,month=1,day=1)
+         def Get_To_DateTime(self):     
+            return datetime(hour=int(self.To_Time.split(":")[0]), minute=int(self.To_Time.split(":")[1]), \
+               day=int(self.To_Date.split("/")[0]),month=int(self.To_Date.split("/")[1]),year=int(self.To_Date.split("/")[2]))
                             
-         def Get_From_Time(self):
-            return datetime(hour=int(self.From_Time.split(":")[0]), minute=int(self.From_Time.split(":")[1]) ,year=2022,month=1,day=1)
+         def Get_From_DateTime(self):
+            return datetime(hour=int(self.From_Time.split(":")[0]), minute=int(self.From_Time.split(":")[1]), \
+               day=int(self.From_Date.split("/")[0]),month=int(self.From_Date.split("/")[1]),year=int(self.From_Date.split("/")[2]))
          
          def Is_valid_Cost(self,cost:str):
             return_cost = 0
