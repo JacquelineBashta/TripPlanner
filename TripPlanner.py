@@ -1,4 +1,5 @@
 from ast import Lambda
+import logging
 import tkinter as tk
 from tkinter import ttk
 from tkcalendar import DateEntry
@@ -7,6 +8,9 @@ import json
 import os.path
 
 from RowEntry import RowEntry
+
+TRANSITION_TIME_DEFAULT = 15  #15 min
+TRANSITION_TIME_FLIGHT = 2*60 #2 hours
 
 ##############################  Start of CLASS   ############################
 class TripPlanner:
@@ -150,27 +154,39 @@ class TripPlanner:
                 #1) current entry to_location == previous entry from_location
                 if current_row.From_Location != previous_row.To_Location:
                     
-                    print("Error: current Location "+ current_row.From_Location + \
+                    validation_log("current Location "+ current_row.From_Location + \
                         " and previous location "+ previous_row.To_Location + \
                             " doesn't match")
-                    #if current entry date to_date > previous from_date
-                        # check stay exist
+                    
+                #if current entry date to_date > previous from_date, check stay exist
+                if current_row.From_Date < previous_row.To_Date:
+                    validation_log("Added date " + current_row.From_Date+ " is in the past wrt "+ previous_row.To_Date)
+                        
+                elif current_row.From_Date > previous_row.To_Date:
+                    if previous_row.Stay_Where == "" or previous_row.Stay_Where == "Stay_Where" :
+                        validation_log("you should stay some where! , find a stay in "+previous_row.To_Location)
                     
                     #else if current entry date == previous 
                         # check time difference > defined_time_frame (e.g. 2h)
+                else :
+                    diff_minutes = ( current_row.Get_From_Time() - previous_row.Get_To_Time()).total_seconds()/ 60 
+                    
+                    #based on the transportaion change the TRANSITION_TIME
+                    if current_row.By_MeansOfTransport == "Flight":
+                        transition_time = TRANSITION_TIME_FLIGHT
+                    else: 
+                        transition_time = TRANSITION_TIME_DEFAULT
+                        
+                    if diff_minutes <= transition_time :
+                        validation_log("Not enough time ("+str(int(diff_minutes/60))+" hours "+str(int(diff_minutes%60))+" minutes) for Transitions")
 
                 
                 #2) change mean of transportation to dropdown -> default=None:
-                      # based on the transportaion change the defined_time_frame
                 
                 #3) label summary to collect total time dates / days in each city / total cost
-                
-                #if self.all_rows_dict[current_row][self.entry_enum.From_Location].get() == \
-                #        self.all_rows_dict[previous_row][self.entry_enum.From_Location].get():
-                #    print("Error: "+self.all_rows_dict[current_row]["From_Location"].get())
 
             previous_row = RowEntry(self.all_rows_dict[row])
-
+    
     def Load_From_File(self):
         row_count = 1
         local_rows_dict = {}
@@ -200,6 +216,22 @@ class TripPlanner:
 
 ##############################  End of CLASS   ############################
 
+
+def validation_log(data:str):
+    #create a logger
+    logger = logging.getLogger('mylogger')
+    logger.setLevel(logging.ERROR)
+    handler = logging.FileHandler('mylog.log')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    #set filter to log only ERROR lines
+    logger.addHandler(handler)
+    
+    logger.error(data)
+    
+    print("ERROR - " + data)
+
+        
 ###################   MAIN    ###################        
 def main():
 
