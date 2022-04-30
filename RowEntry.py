@@ -1,6 +1,7 @@
 
 import tkinter as tk
 from datetime import datetime
+from ValidationLog import ValidationLog as VL
 
 class RowEntry:
          def __init__(self,row:dict):     
@@ -44,4 +45,20 @@ class RowEntry:
                             
          def Get_From_Time(self):
             return datetime(hour=int(self.From_Time.split(":")[0]), minute=int(self.From_Time.split(":")[1]) ,year=2022,month=1,day=1)
-             
+         
+         def Is_valid_Cost(self,cost:str):
+            return_cost = 0
+            if cost.isdigit():
+               return_cost = float(cost) 
+            elif cost == "Cost" or cost == "":
+               return_cost = 0
+            else:
+               VL.validation_log("Invalid Cost Value "+str(cost)+" , Please add value in Euro")
+               return_cost = 0
+            return return_cost   
+
+         def Get_By_Cost(self):
+            return self.Is_valid_Cost(self.By_Cost)
+
+         def Get_Stay_Cost(self):
+            return self.Is_valid_Cost(self.Stay_Cost) 

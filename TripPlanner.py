@@ -1,5 +1,6 @@
 from ast import Lambda
 import logging
+from textwrap import fill
 import tkinter as tk
 from tkinter import ttk
 from tkcalendar import DateEntry
@@ -8,6 +9,7 @@ import json
 import os.path
 
 from RowEntry import RowEntry
+from ValidationLog import ValidationLog as VL
 
 TRANSITION_TIME_DEFAULT = 15  #15 min
 TRANSITION_TIME_FLIGHT = 2*60 #2 hours
@@ -58,8 +60,8 @@ class TripPlanner:
 
     def Add_Row_Button(self):
         button_add_row = ttk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
-        #button_add_row.place(relx =0.55,rely = 0)
-        button_add_row.pack()           
+        button_add_row.place(relx =0.55,rely = 0)
+        #button_add_row.pack()           
 
     def Reload_Button(self):
         button_reload = ttk.Button(self.main_frame, text="Reload", command=self.Reload)
@@ -123,6 +125,29 @@ class TripPlanner:
         
         self.all_rows_dict[frame.winfo_name()]= row_dict      
 
+    def Add_Summary_Frame(self):
+        frame_summary = tk.Frame(self.main_frame)
+        frame_summary.configure(bg=self.color, bd=3, relief="sunken", highlightthickness=2)
+        frame_summary.pack()
+        
+        label_trip_duration = ttk.Label(frame_summary,text="Trip Duration = ")
+        self.label_trip_duration_value = ttk.Label(frame_summary,text="0")
+        
+        label_trip_in_glance = ttk.Label(frame_summary,text="Trip In Glance = ")
+        self.label_trip_in_glance_value = ttk.Label(frame_summary,text="0")
+
+        label_trip_cost = ttk.Label(frame_summary,text="Trip Cost = ")
+        self.label_trip_cost_value = ttk.Label(frame_summary,text="0")
+        
+        label_trip_duration.grid(row=0, column=0)
+        self.label_trip_duration_value.grid(row=0, column=1)
+        
+        label_trip_in_glance.grid(row=1, column=0)
+        self.label_trip_in_glance_value.grid(row=1, column=1)
+        
+        label_trip_cost.grid(row=2, column=0)
+        self.label_trip_cost_value.grid(row=2, column=1)
+        
     ###################   Save/Load/Reload    ###################
     def Save_2_File(self):
                
@@ -140,8 +165,19 @@ class TripPlanner:
     
     def Formate_Validate_Content(self):
         pass
+    
     def Update_Summary(self):
-        pass
+        total_cost = 0
+        
+        for row in self.all_rows_dict:
+            new_row = RowEntry(self.all_rows_dict[row])
+            total_cost += new_row.Get_By_Cost()
+            total_cost += new_row.Get_Stay_Cost()
+        
+        
+        self.label_trip_cost_value.config(text = str(total_cost) +" €") 
+        self.label_trip_duration_value.config(text = "2")
+        self.label_trip_in_glance_value.config(text = "5")
     
     def Logical_Validate_Content(self):
         # Row Data
@@ -165,17 +201,17 @@ class TripPlanner:
                 #1) current entry to_location == previous entry from_location
                 if current_row.From_Location != previous_row.To_Location:
                     
-                    validation_log("current Location "+ current_row.From_Location + \
+                    VL.validation_log("current Location "+ current_row.From_Location + \
                         " and previous location "+ previous_row.To_Location + \
                             " doesn't match")
                     
                 #if current entry date to_date > previous from_date, check stay exist
                 if current_row.From_Date < previous_row.To_Date:
-                    validation_log("Added date " + current_row.From_Date+ " is in the past wrt "+ previous_row.To_Date)
+                    VL.validation_log("Added date " + current_row.From_Date+ " is in the past wrt "+ previous_row.To_Date)
                         
                 elif current_row.From_Date > previous_row.To_Date:
                     if previous_row.Stay_Where == "" or previous_row.Stay_Where == "Stay_Where" :
-                        validation_log("you should stay some where! , find a stay in "+previous_row.To_Location)
+                        VL.validation_log("you should stay some where! , find a stay in "+previous_row.To_Location)
                     
                     #else if current entry date == previous 
                         # check time difference > defined_time_frame (e.g. 2h)
@@ -189,7 +225,7 @@ class TripPlanner:
                         transition_time = TRANSITION_TIME_DEFAULT
                         
                     if diff_minutes <= transition_time :
-                        validation_log("Not enough time ("+str(int(diff_minutes/60))+" hours "+str(int(diff_minutes%60))+" minutes) for Transitions")
+                        VL.validation_log("Not enough time ("+str(int(diff_minutes/60))+" hours "+str(int(diff_minutes%60))+" minutes) for Transitions")
 
                 
                 #2) change mean of transportation to dropdown -> default=None:
@@ -199,16 +235,13 @@ class TripPlanner:
             previous_row = RowEntry(self.all_rows_dict[row])
     
     def Load_From_File(self):
-        row_count = 1
+        row_count = 2
         local_rows_dict = {}
         with open("trip.json", "r+") as read_file:
             temp_rows_dict = json.load(read_file)
             # re-name the frame Ids as expected by tkinter
             for row in temp_rows_dict:
-                if row_count == 1:
-                    local_rows_dict["!frame"] =  temp_rows_dict[row]
-                else:
-                    local_rows_dict["!frame"+str(row_count)] =  temp_rows_dict[row]
+                local_rows_dict["!frame"+str(row_count)] =  temp_rows_dict[row]
                 row_count += 1
             for row in local_rows_dict:
                 self.Row_Entry()
@@ -226,46 +259,3 @@ class TripPlanner:
         widget.master.destroy()
 
 ##############################  End of CLASS   ############################
-
-
-def validation_log(data:str):
-    #create a logger
-    logger = logging.getLogger('mylogger')
-    logger.setLevel(logging.ERROR)
-    handler = logging.FileHandler('mylog.log')
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    #set filter to log only ERROR lines
-    logger.addHandler(handler)
-    
-    logger.error(data)
-    
-    print("ERROR - " + data)
-
-        
-###################   MAIN    ###################        
-def main():
-
-    # Create object from the class Tripplanner
-    trip = TripPlanner("Trip Planner App") 
-
-    # Insert basic buttons
-    trip.Add_Row_Button()
-    trip.Save_Button()
-    trip.Reload_Button()
-        
-    
-    # if trip file exist, load from file
-    if os.path.exists("trip.json"):
-        trip.Load_From_File()
-    else:
-        #else create new trip        
-        trip.Row_Entry()
-
-    
-    
-    # Run forever!
-    trip.root.mainloop()
-
-if __name__ == '__main__':
-    main()

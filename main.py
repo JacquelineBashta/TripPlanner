@@ -1,0 +1,33 @@
+###################   MAIN    ###################        
+import os
+from TripPlanner import TripPlanner
+
+
+def main():
+
+    # Create object from the class Tripplanner
+    trip = TripPlanner("Trip Planner App") 
+
+    # Insert summary frame
+    trip.Add_Summary_Frame()
+    
+    # Insert basic buttons
+    trip.Add_Row_Button()
+    trip.Save_Button()
+    trip.Reload_Button()
+        
+    
+    # if trip file exist, load from file
+    if os.path.exists("trip.json"):
+        trip.Load_From_File()
+    else:
+        #else create new trip        
+        trip.Row_Entry()
+
+    
+    
+    # Run forever!
+    trip.root.mainloop()
+
+if __name__ == '__main__':
+    main()
