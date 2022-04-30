@@ -21,7 +21,7 @@ class TripPlanner:
         self.current_row = 0
         self.root = tk.Tk()
         self.root.title(name)
-        self.root.resizable(width=False, height=True) # disable width resize
+        #self.root.resizable(width=False, height=True) # disable width resize
         self.root.geometry('1200x700')
         self.register_validation = self.root.register(self.Validation)
         self.main_frame = self.Setup_Main_Frame()
