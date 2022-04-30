@@ -22,7 +22,7 @@ class TripPlanner:
         self.root = tk.Tk()
         self.root.title(name)
         #self.root.resizable(width=False, height=True) # disable width resize
-        self.root.geometry('1200x700')
+        self.root.geometry('1300x700')
         self.register_validation = self.root.register(self.Validation)
         self.main_frame = self.Setup_Main_Frame()
         self.all_rows_dict = {}
@@ -59,7 +59,7 @@ class TripPlanner:
         
         print("^_^")
         
-    ##############      Menu/Buttons     ########################
+    ##############      File Menu     ########################
     def File_Menu(self):
         # Creating Menubar
         menubar = tk.Menu(self.root)
@@ -75,37 +75,36 @@ class TripPlanner:
         file.add_command(label ='Exit', command = self.root.destroy)
 
         # Add the menu bar to the top of the window
-        self.root.config(menu=menubar)
-        
-    def Add_Row_Button(self):
-        button_add_row = ttk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
-        #button_add_row.place(relx =0.55,rely = 0)
-        button_add_row.pack()               
+        self.root.config(menu=menubar)            
         
     ################      AddingFrames      ######################
     def Block_Entry(self,frame,row_dict, column_num:int, block_name:str, *entry_names ):
         pad = 5
         entry_count = len(entry_names)
         
-        label = ttk.Label(frame, text=block_name)
+        canvas = tk.Canvas(frame)
+        canvas.configure(bd=3, relief="groove", highlightthickness=2)
+        canvas.grid(row=self.current_row, column=column_num,padx=pad, pady=pad)
+        
+        label = ttk.Label(canvas, text=block_name)
         label.grid(row=self.current_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
             
             if entry_name == "Date":
-                entry = DateEntry(frame,selectmode='day')
+                entry = DateEntry(canvas,selectmode='day')
                 
             elif entry_name == "Time":
-                entry = ttk.Entry(frame)
+                entry = ttk.Entry(canvas)
                 entry.insert(0,"00:00")
                 
             elif entry_name == "LinkForOffer":
-                entry = tk.Entry(frame, fg="blue", cursor="hand2")
+                entry = tk.Entry(canvas, fg="blue", cursor="hand2")
                 entry.insert(0,entry_name)
                 entry.bind("<Button-1>", lambda event, a=entry: Open_Hyberlink(a) )
                 
             else:
-                entry = ttk.Entry(frame)
+                entry = ttk.Entry(canvas)
                 entry.insert(0,entry_name)
             
             entry.grid(row=self.current_row, column=column_num+1,padx=pad, pady=pad)
@@ -125,18 +124,16 @@ class TripPlanner:
             self.color = "lightgrey"
         
         #Start with creating a frame to hold row info
-        
         frame = tk.Frame(self.main_frame)
-        frame.configure(bg=self.color, bd=3, relief="sunken", highlightthickness=2)
+        frame.configure(bg=self.color, bd=3, relief="groove", highlightthickness=2)
         frame.pack()
 
-        
         row_dict = {}
         self.Block_Entry(frame,row_dict, 0,"From","Location","Date","Time")
-        self.Block_Entry(frame,row_dict, 2,"To","Location","Date","Time")
-        self.Block_Entry(frame,row_dict, 4,"By","MeansOfTransport","LinkForOffer","Cost")
-        self.Block_Entry(frame,row_dict, 6,"Stay","Where","LinkForOffer","Cost")
-        self.Block_Entry(frame,row_dict, 8,"Misc","Weather","Currency","MobileData")
+        self.Block_Entry(frame,row_dict, 1,"To","Location","Date","Time")
+        self.Block_Entry(frame,row_dict, 2,"By","MeansOfTransport","LinkForOffer","Cost")
+        self.Block_Entry(frame,row_dict, 3,"Stay","Where","LinkForOffer","Cost")
+        self.Block_Entry(frame,row_dict, 4,"Misc","Weather","Currency","MobileData")
         
         button_delete_row = ttk.Button(frame, text="Delete Row")
         button_delete_row.config(command=lambda: self.Delete_Row(button_delete_row))
@@ -146,7 +143,7 @@ class TripPlanner:
 
     def Add_Summary_Frame(self):
         frame_summary = tk.Frame(self.main_frame)
-        frame_summary.configure(bg=self.color, bd=3, relief="sunken", highlightthickness=2)
+        frame_summary.configure(bg=self.color, bd=3, relief="groove", highlightthickness=2)
         frame_summary.pack()
         
         label_trip_duration = ttk.Label(frame_summary,text="Trip Duration = ")
@@ -167,6 +164,11 @@ class TripPlanner:
         label_trip_cost.grid(row=2, column=0)
         self.label_trip_cost_value.grid(row=2, column=1)
         
+        #Add button
+        button_add_row = ttk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
+        #button_add_row.place(relx =0.55,rely = 0)
+        button_add_row.pack()   
+    
     ###################   Save/Load/Reload    ###################
     def Save_2_File(self):
         print("Saving...")

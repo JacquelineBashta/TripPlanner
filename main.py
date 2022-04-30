@@ -10,9 +10,6 @@ def main():
 
     trip.File_Menu()
     
-    # Insert basic buttons
-    trip.Add_Row_Button()
-    
     # Insert summary frame
     trip.Add_Summary_Frame()
     
