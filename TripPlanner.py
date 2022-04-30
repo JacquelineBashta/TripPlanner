@@ -147,13 +147,13 @@ class TripPlanner:
         frame_summary.configure(bg=self.color, bd=3, relief="groove", highlightthickness=2)
         frame_summary.pack()
         
-        label_trip_duration = ttk.Label(frame_summary,text="Trip Duration: ")
+        label_trip_duration = ttk.Label(frame_summary,text="Trip Duration: ",font="bold")
         self.label_trip_duration_value = ttk.Label(frame_summary,text="0")
         
-        label_trip_in_glance = ttk.Label(frame_summary,text="Trip In Glance: ")
+        label_trip_in_glance = ttk.Label(frame_summary,text="Trip In Glance: ",font="bold")
         self.label_trip_in_glance_value = ttk.Label(frame_summary,text="0")
 
-        label_trip_cost = ttk.Label(frame_summary,text="Trip Cost: ")
+        label_trip_cost = ttk.Label(frame_summary,text="Trip Cost: ",font="bold")
         self.label_trip_cost_value = ttk.Label(frame_summary,text="0")
         
         label_trip_duration.grid(row=0, column=0,padx=5,pady=5)
@@ -164,6 +164,7 @@ class TripPlanner:
         
         label_trip_cost.grid(row=0, column=2,padx=5,pady=5)
         self.label_trip_cost_value.grid(row=1, column=2,padx=5,pady=5)
+        
         
         #Add button
         button_add_row = ttk.Button(frame_summary, text="Add Row", command=self.Row_Entry)
