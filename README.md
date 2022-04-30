@@ -26,3 +26,4 @@ App to allow collecting trip planning information in one structure form, and per
 - [ ] Add label to each entry
 - [ ] Add frame/boarder for each block
 - [ ] Clean up frames arrangement
+- [ ] Wrap up text entries
