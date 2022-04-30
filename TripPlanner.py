@@ -27,7 +27,7 @@ class TripPlanner:
         self.main_frame = self.Setup_Main_Frame()
         self.all_rows_dict = {}
         self.color = "lightgrey"
-        
+
     def Setup_Main_Frame(self):
         frame = ttk.Frame(self.root)
         frame.pack(expand=True, fill=tk.BOTH)
@@ -59,22 +59,28 @@ class TripPlanner:
         
         print("^_^")
         
-    ##############      BUTTONS     ########################
-    def Save_Button(self):
-        button_save = ttk.Button(self.main_frame, text="Save", command=self.Save_2_File)
-        #Dirty solution to place button side to side with "add Row2 botton, but it reply on the existance of the other button widget as pack"
-        button_save.place(relx =0.65,rely = 0)
-        #button_save.pack()
+    ##############      Menu/Buttons     ########################
+    def File_Menu(self):
+        # Creating Menubar
+        menubar = tk.Menu(self.root)
+        
+        # Adding File Menu and commands
+        file = tk.Menu(menubar, tearoff = 0)
+        menubar.add_cascade(label ='File', menu = file)
+        file.add_command(label ='New Trip', command = None)
+        file.add_command(label ='Open...', command = None)
+        file.add_command(label ='Save', command = self.Save_2_File)
+        file.add_command(label ='Reload', command = self.Reload)
+        file.add_separator()
+        file.add_command(label ='Exit', command = self.root.destroy)
 
+        # Add the menu bar to the top of the window
+        self.root.config(menu=menubar)
+        
     def Add_Row_Button(self):
         button_add_row = ttk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
         #button_add_row.place(relx =0.55,rely = 0)
-        button_add_row.pack()           
-
-    def Reload_Button(self):
-        button_reload = ttk.Button(self.main_frame, text="Reload", command=self.Reload)
-        button_reload.place(relx =0.75,rely = 0)
-        #button_reload.pack()      
+        button_add_row.pack()               
         
     ################      AddingFrames      ######################
     def Block_Entry(self,frame,row_dict, column_num:int, block_name:str, *entry_names ):
@@ -163,7 +169,7 @@ class TripPlanner:
         
     ###################   Save/Load/Reload    ###################
     def Save_2_File(self):
-               
+        print("Saving...")
         local_rows_dict ={}
         
         for row in self.all_rows_dict:

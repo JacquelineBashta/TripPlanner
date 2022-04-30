@@ -8,10 +8,10 @@ def main():
     # Create object from the class Tripplanner
     trip = TripPlanner("Trip Planner App") 
 
+    trip.File_Menu()
+    
     # Insert basic buttons
     trip.Add_Row_Button()
-    trip.Save_Button()
-    trip.Reload_Button()
     
     # Insert summary frame
     trip.Add_Summary_Frame()
