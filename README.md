@@ -19,6 +19,7 @@ App to allow collecting trip planning information in one structure form, and per
 
 - [x] label summary to collect total time dates / days in each city / total cost
 - [ ] Support save/load different trip files
+- [ ] Add "comment" feature per Frame , using separate window
 
 ### GUI
 - [x] Organize the buttons beautifully
