@@ -23,6 +23,7 @@ class TripPlanner:
         self.root.title(name)
         #self.root.resizable(width=False, height=True) # disable width resize
         self.root.geometry('1300x700')
+        self.root.wm_attributes("-topmost", 1)
         self.register_validation = self.root.register(self.Validation)
         self.main_frame = self.Setup_Main_Frame()
         self.all_rows_dict = {}
@@ -146,28 +147,28 @@ class TripPlanner:
         frame_summary.configure(bg=self.color, bd=3, relief="groove", highlightthickness=2)
         frame_summary.pack()
         
-        label_trip_duration = ttk.Label(frame_summary,text="Trip Duration = ")
+        label_trip_duration = ttk.Label(frame_summary,text="Trip Duration: ")
         self.label_trip_duration_value = ttk.Label(frame_summary,text="0")
         
-        label_trip_in_glance = ttk.Label(frame_summary,text="Trip In Glance = ")
+        label_trip_in_glance = ttk.Label(frame_summary,text="Trip In Glance: ")
         self.label_trip_in_glance_value = ttk.Label(frame_summary,text="0")
 
-        label_trip_cost = ttk.Label(frame_summary,text="Trip Cost = ")
+        label_trip_cost = ttk.Label(frame_summary,text="Trip Cost: ")
         self.label_trip_cost_value = ttk.Label(frame_summary,text="0")
         
-        label_trip_duration.grid(row=0, column=0)
-        self.label_trip_duration_value.grid(row=0, column=1)
+        label_trip_duration.grid(row=0, column=0,padx=5,pady=5)
+        self.label_trip_duration_value.grid(row=1, column=0,padx=5,pady=5)
         
-        label_trip_in_glance.grid(row=1, column=0)
-        self.label_trip_in_glance_value.grid(row=1, column=1)
+        label_trip_in_glance.grid(row=0, column=1,padx=5,pady=5)
+        self.label_trip_in_glance_value.grid(row=1, column=1,padx=5,pady=5)
         
-        label_trip_cost.grid(row=2, column=0)
-        self.label_trip_cost_value.grid(row=2, column=1)
+        label_trip_cost.grid(row=0, column=2,padx=5,pady=5)
+        self.label_trip_cost_value.grid(row=1, column=2,padx=5,pady=5)
         
         #Add button
-        button_add_row = ttk.Button(self.main_frame, text="Add Row", command=self.Row_Entry)
+        button_add_row = ttk.Button(frame_summary, text="Add Row", command=self.Row_Entry)
         #button_add_row.place(relx =0.55,rely = 0)
-        button_add_row.pack()   
+        button_add_row.grid(row=2, column=0,columnspan=3,padx=5,pady=5)   
     
     ###################   Save/Load/Reload    ###################
     def Save_2_File(self):
