@@ -64,3 +64,4 @@ class RowEntry:
 
          def Get_Stay_Cost(self):
             return self.Is_valid_Cost(self.Stay_Cost) 
+         

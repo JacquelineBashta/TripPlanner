@@ -1,8 +1,8 @@
 from ast import Lambda
 import logging
-from textwrap import fill
 import tkinter as tk
 from tkinter import ttk
+import webbrowser
 from tkcalendar import DateEntry
 
 import json
@@ -92,6 +92,11 @@ class TripPlanner:
             elif entry_name == "Time":
                 entry = ttk.Entry(frame)
                 entry.insert(0,"00:00")
+                
+            elif entry_name == "LinkForOffer":
+                entry = tk.Entry(frame, fg="blue", cursor="hand2")
+                entry.insert(0,entry_name)
+                entry.bind("<Button-1>", lambda event, a=entry: Open_Hyberlink(a) )
                 
             else:
                 entry = ttk.Entry(frame)
@@ -220,12 +225,16 @@ class TripPlanner:
             # for each row validate entries not having default values
             
             if previous_row != None:
-                #1) current entry to_location == previous entry from_location
+                # current entry to_location == previous entry from_location
                 if current_row.From_Location != previous_row.To_Location:
                     
                     VL.validation_log("current Location "+ current_row.From_Location + \
                         " and previous location "+ previous_row.To_Location + \
                             " doesn't match")
+                
+                # check that  to_datetime > from_datetime of same entry
+                if current_row.Get_To_DateTime() <= current_row.Get_From_DateTime():
+                    VL.validation_log("Wrong timing for "+current_row.From_Location)  
                     
                 #if current entry date from_date < previous to_date, check stay exist
                 if current_row.Get_From_DateTime().date() < previous_row.Get_To_DateTime().date():
@@ -281,3 +290,11 @@ class TripPlanner:
         widget.master.destroy()
 
 ##############################  End of CLASS   ############################
+
+def Open_Hyberlink(entry_link:tk.Entry):
+    
+    link_text = entry_link.get()
+        
+    if(link_text.startswith("http")):
+        webbrowser.open_new(link_text)
+

@@ -22,8 +22,6 @@ def main():
     else:
         #else create new trip        
         trip.Row_Entry()
-
-    
     
     # Run forever!
     trip.root.mainloop()
