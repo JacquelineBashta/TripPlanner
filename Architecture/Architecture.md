@@ -20,7 +20,7 @@ An example for integration into GitHub wikis is available here: https://github.c
 
 
 
-# Architecture Diagram
+# GUI Diagram
 
 ![Diagram](ArchitectureDiagram.png)
 
@@ -29,3 +29,10 @@ An example for integration into GitHub wikis is available here: https://github.c
 
 
 
+
+
+# Class Diagram
+
+![Diagram](TP_ClassDiagram.png)
+
+<a href="https://app.diagrams.net/?mode=github#HJacquelineBashta%2FTripPlanner%2Fmain%2FArchitecture%2FTP_ClassDiagram.png" target="_blank">Edit</a>

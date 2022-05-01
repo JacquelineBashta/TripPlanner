@@ -27,3 +27,11 @@ App to allow collecting trip planning information in one structure form, and per
 - [x] Add frame/boarder for each block
 - [x] Clean up frames arrangement
 - [ ] Wrap up text entries
+
+
+### Internal Construct
+- [x] Draw initial Class Diagram
+- [ ] Create TP_Data Class
+- [ ] Create TP_FileHandler class
+- [ ] 
+- [ ] 
