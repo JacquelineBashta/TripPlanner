@@ -121,6 +121,23 @@ class TripPlanner:
             
         self.current_row= 0
     
+    def Row_Entry_Options(self,frame,row_dict,column_num):
+        pad = 5
+        canvas = tk.Canvas(frame)
+        canvas.configure(bd=3, relief="groove", highlightthickness=1)
+        canvas.grid(row=self.current_row, column=column_num,padx=pad, pady=pad)
+       
+        button_save_note = ttk.Button(canvas, text="Notes")
+        button_save_note.config(command=lambda: self.Open_Note_Window(button_save_note))
+        button_save_note.pack()
+        
+        #Workaround to treat the Notes (get/delete) same as other Entries
+        row_dict["Notes"] = tk.Entry()
+        
+        button_delete_row = ttk.Button(canvas, text="Delete Row")
+        button_delete_row.config(command=lambda: self.Delete_Row(button_delete_row))
+        button_delete_row.pack()
+        
     def Row_Entry(self):
         # Toggle rows color for better ux
         if self.color == "lightgrey":
@@ -140,15 +157,7 @@ class TripPlanner:
         self.Block_Entry(frame,row_dict, 3,"Stay","Where","LinkForOffer","Cost")
         self.Block_Entry(frame,row_dict, 4,"Misc","Weather","Currency","MobileData")
         
-        
-        button_delete_row = ttk.Button(frame, text="Delete Row")
-        button_delete_row.config(command=lambda: self.Delete_Row(button_delete_row))
-        button_delete_row.grid(row=self.current_row+1, column=10)
-       
-        button_save_note = ttk.Button(frame, text="Notes")
-        button_save_note.config(command=lambda: self.Open_Note_Window(button_save_note))
-        button_save_note.grid(row=self.current_row+2, column=10)
-        row_dict["Notes"] = tk.Entry()
+        self.Row_Entry_Options(frame,row_dict, 5)
         
         self.all_rows_dict[frame.winfo_name()]= row_dict      
 
@@ -189,7 +198,7 @@ class TripPlanner:
 
         inputtxt = tk.Text(newWindow, height = 15, width = 35)
         inputtxt.pack()
-        inputtxt.insert(1.0, self.all_rows_dict[widget.master.winfo_name()]["Notes"].get())
+        inputtxt.insert(1.0, self.all_rows_dict[widget.master.master.winfo_name()]["Notes"].get())
         
         # Button Creation
         note_save_button = ttk.Button(newWindow,text = "Save", \
@@ -323,14 +332,14 @@ class TripPlanner:
         os.system('main.py')
 
     def Delete_Row(self, widget:ttk.Button):
-        self.all_rows_dict.pop(widget.master.winfo_name())
-        widget.master.destroy()
+        self.all_rows_dict.pop(widget.master.master.winfo_name())
+        widget.master.master.destroy()
 
     def Save_Note_Text(self,inputtxt:tk.Text,frame_note_butt:ttk.Button):
         inp = inputtxt.get(1.0, "end-1c")
         Note_Entry = ttk.Entry()
         Note_Entry.insert(0,inp)
-        self.all_rows_dict[frame_note_butt.master.winfo_name()]["Notes"] = Note_Entry
+        self.all_rows_dict[frame_note_butt.master.master.winfo_name()]["Notes"] = Note_Entry
         self.Save_2_File()
 
 ##############################  End of CLASS   ############################
