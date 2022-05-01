@@ -9,6 +9,7 @@ import json
 import os.path
 
 from RowEntry import RowEntry
+from TP_FileHandler import TP_FileHandler
 from ValidationLog import ValidationLog as VL
 
 TRANSITION_TIME_DEFAULT = 15  #15 min
@@ -19,7 +20,7 @@ Font_Normal = ("Comic Sans MS", 10, "normal")
 Font_Bold = ("Comic Sans MS", 10, "bold")
 
 ##############################  Start of CLASS   ############################
-class TripPlanner:
+class TP_GUI:
     
     def __init__(self,name):
         self.current_row = 0
@@ -74,7 +75,7 @@ class TripPlanner:
         menubar.add_cascade(label ='File', menu = file)
         file.add_command(label ='New Trip', command = None)
         file.add_command(label ='Open...', command = None)
-        file.add_command(label ='Save', command = self.Save_2_File)
+        file.add_command(label ='Save', command =lambda: TP_FileHandler.Save_File(self.all_rows_dict))
         file.add_command(label ='Reload', command = self.Reload)
         file.add_separator()
         file.add_command(label ='Exit', command = self.root.destroy)
@@ -205,22 +206,6 @@ class TripPlanner:
                             command = lambda a=inputtxt, b=widget: self.Save_Note_Text(a,b))
         note_save_button.pack()
 
-    ###################   Save/Load/Reload    ###################
-    def Save_2_File(self):
-        print("Saving...")
-        local_rows_dict ={}
-        
-        for row in self.all_rows_dict:
-            local_row_dict = {}            
-            for entry in self.all_rows_dict[row]:
-                local_row_dict[entry]=self.all_rows_dict[row][entry].get()
-                
-            local_rows_dict[row]=local_row_dict
-          
-        with open('trip.json', "w+") as fout:
-            json.dump(local_rows_dict, fout)
-        
-        print("Saved")
     
     def Formate_Validate_Content(self):
         pass
@@ -311,23 +296,10 @@ class TripPlanner:
 
             previous_row = RowEntry(self.all_rows_dict[row])
     
-    def Load_From_File(self):
-        row_count = 2
-        local_rows_dict = {}
-        with open("trip.json", "r+") as read_file:
-            temp_rows_dict = json.load(read_file)
-            # re-name the frame Ids as expected by tkinter
-            for row in temp_rows_dict:
-                local_rows_dict["!frame"+str(row_count)] =  temp_rows_dict[row]
-                row_count += 1
-            for row in local_rows_dict:
-                self.Row_Entry()
-                for key, value in local_rows_dict[row].items():
-                    self.all_rows_dict[row][key].delete(0,'end')
-                    self.all_rows_dict[row][key].insert(0,value)
+    
                 
     def Reload(self):
-        self.Save_2_File()
+        TP_FileHandler.Save_File(self.all_rows_dict)
         self.root.destroy()
         os.system('main.py')
 
@@ -340,7 +312,7 @@ class TripPlanner:
         Note_Entry = ttk.Entry()
         Note_Entry.insert(0,inp)
         self.all_rows_dict[frame_note_butt.master.master.winfo_name()]["Notes"] = Note_Entry
-        self.Save_2_File()
+        TP_FileHandler.Save_File(self.all_rows_dict)
 
 ##############################  End of CLASS   ############################
 
