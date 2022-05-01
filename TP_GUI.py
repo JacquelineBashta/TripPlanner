@@ -5,9 +5,6 @@ from tkinter import ttk
 import webbrowser
 from tkcalendar import DateEntry
 
-import json
-import os.path
-
 from RowEntry import RowEntry
 from TP_FileHandler import TP_FileHandler
 from ValidationLog import ValidationLog as VL
@@ -23,7 +20,7 @@ Font_Bold = ("Comic Sans MS", 10, "bold")
 class TP_GUI:
     
     def __init__(self,name):
-        self.current_row = 0
+        self.current_grid_row = 0
         self.root = tk.Tk()
         self.root.title(name)
         #self.root.resizable(width=False, height=True) # disable width resize
@@ -76,7 +73,6 @@ class TP_GUI:
         file.add_command(label ='New Trip', command = None)
         file.add_command(label ='Open...', command = None)
         file.add_command(label ='Save', command =lambda: TP_FileHandler.Save_File(self.all_rows_dict))
-        file.add_command(label ='Reload', command = self.Reload)
         file.add_separator()
         file.add_command(label ='Exit', command = self.root.destroy)
 
@@ -90,10 +86,10 @@ class TP_GUI:
         
         canvas = tk.Canvas(frame)
         canvas.configure(bd=3, relief="groove", highlightthickness=1)
-        canvas.grid(row=self.current_row, column=column_num,padx=pad, pady=pad)
+        canvas.grid(row=self.current_grid_row, column=column_num,padx=pad, pady=pad)
         
         label = ttk.Label(canvas, text=block_name , font=Font_Normal)
-        label.grid(row=self.current_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
+        label.grid(row=self.current_grid_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
             
@@ -113,20 +109,19 @@ class TP_GUI:
                 entry = ttk.Entry(canvas)
                 entry.insert(0,entry_name)
             
-            entry.grid(row=self.current_row, column=column_num+1,padx=pad, pady=pad)
+            entry.grid(row=self.current_grid_row, column=column_num+1,padx=pad, pady=pad)
             entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'), font=Font_Small)
             
             row_dict[block_name+"_"+entry_name] = entry
+            self.current_grid_row +=1
             
-            self.current_row +=1
-            
-        self.current_row= 0
+        self.current_grid_row= 0
     
     def Row_Entry_Options(self,frame,row_dict,column_num):
         pad = 5
         canvas = tk.Canvas(frame)
         canvas.configure(bd=3, relief="groove", highlightthickness=1)
-        canvas.grid(row=self.current_row, column=column_num,padx=pad, pady=pad)
+        canvas.grid(row=self.current_grid_row, column=column_num,padx=pad, pady=pad)
        
         button_save_note = ttk.Button(canvas, text="Notes")
         button_save_note.config(command=lambda: self.Open_Note_Window(button_save_note))
@@ -298,10 +293,7 @@ class TP_GUI:
     
     
                 
-    def Reload(self):
-        TP_FileHandler.Save_File(self.all_rows_dict)
-        self.root.destroy()
-        os.system('main.py')
+
 
     def Delete_Row(self, widget:ttk.Button):
         self.all_rows_dict.pop(widget.master.master.winfo_name())
