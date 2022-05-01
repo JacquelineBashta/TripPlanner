@@ -14,6 +14,10 @@ from ValidationLog import ValidationLog as VL
 TRANSITION_TIME_DEFAULT = 15  #15 min
 TRANSITION_TIME_FLIGHT = 2*60 #2 hours
 
+Font_Small = ("Comic Sans MS", 8, "normal")
+Font_Normal = ("Comic Sans MS", 10, "normal")
+Font_Bold = ("Comic Sans MS", 10, "bold")
+
 ##############################  Start of CLASS   ############################
 class TripPlanner:
     
@@ -84,10 +88,10 @@ class TripPlanner:
         entry_count = len(entry_names)
         
         canvas = tk.Canvas(frame)
-        canvas.configure(bd=3, relief="groove", highlightthickness=2)
+        canvas.configure(bd=3, relief="groove", highlightthickness=1)
         canvas.grid(row=self.current_row, column=column_num,padx=pad, pady=pad)
         
-        label = ttk.Label(canvas, text=block_name)
+        label = ttk.Label(canvas, text=block_name , font=Font_Normal)
         label.grid(row=self.current_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
@@ -109,7 +113,7 @@ class TripPlanner:
                 entry.insert(0,entry_name)
             
             entry.grid(row=self.current_row, column=column_num+1,padx=pad, pady=pad)
-            entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'))
+            entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'), font=Font_Small)
             
             row_dict[block_name+"_"+entry_name] = entry
             
@@ -136,9 +140,15 @@ class TripPlanner:
         self.Block_Entry(frame,row_dict, 3,"Stay","Where","LinkForOffer","Cost")
         self.Block_Entry(frame,row_dict, 4,"Misc","Weather","Currency","MobileData")
         
+        
         button_delete_row = ttk.Button(frame, text="Delete Row")
         button_delete_row.config(command=lambda: self.Delete_Row(button_delete_row))
-        button_delete_row.grid(row=self.current_row,rowspan=3, column=10)
+        button_delete_row.grid(row=self.current_row+1, column=10)
+       
+        button_save_note = ttk.Button(frame, text="Notes")
+        button_save_note.config(command=lambda: self.Open_Note_Window(button_save_note))
+        button_save_note.grid(row=self.current_row+2, column=10)
+        row_dict["Notes"] = tk.Entry()
         
         self.all_rows_dict[frame.winfo_name()]= row_dict      
 
@@ -147,14 +157,14 @@ class TripPlanner:
         frame_summary.configure(bg=self.color, bd=3, relief="groove", highlightthickness=2)
         frame_summary.pack()
         
-        label_trip_duration = ttk.Label(frame_summary,text="Trip Duration: ",font="bold")
-        self.label_trip_duration_value = ttk.Label(frame_summary,text="0")
+        label_trip_duration = ttk.Label(frame_summary,text="Trip Duration: ",font=Font_Bold)
+        self.label_trip_duration_value = ttk.Label(frame_summary,text="0",font=Font_Small)
         
-        label_trip_in_glance = ttk.Label(frame_summary,text="Trip In Glance: ",font="bold")
-        self.label_trip_in_glance_value = ttk.Label(frame_summary,text="0")
+        label_trip_in_glance = ttk.Label(frame_summary,text="Trip In Glance: ",font=Font_Bold)
+        self.label_trip_in_glance_value = ttk.Label(frame_summary,text="0",font=Font_Small)
 
-        label_trip_cost = ttk.Label(frame_summary,text="Trip Cost: ",font="bold")
-        self.label_trip_cost_value = ttk.Label(frame_summary,text="0")
+        label_trip_cost = ttk.Label(frame_summary,text="Trip Cost: ",font=Font_Bold)
+        self.label_trip_cost_value = ttk.Label(frame_summary,text="0",font=Font_Small)
         
         label_trip_duration.grid(row=0, column=0,padx=5,pady=5)
         self.label_trip_duration_value.grid(row=1, column=0,padx=5,pady=5)
@@ -171,6 +181,21 @@ class TripPlanner:
         #button_add_row.place(relx =0.55,rely = 0)
         button_add_row.grid(row=2, column=0,columnspan=3,padx=5,pady=5)   
     
+    def Open_Note_Window(self,widget:ttk.Button):
+        newWindow = tk.Toplevel(self.root)
+        newWindow.title("Note Window")
+        newWindow.geometry("400x400")
+        newWindow.wm_attributes("-topmost", 1)
+
+        inputtxt = tk.Text(newWindow, height = 15, width = 35)
+        inputtxt.pack()
+        inputtxt.insert(1.0, self.all_rows_dict[widget.master.winfo_name()]["Notes"].get())
+        
+        # Button Creation
+        note_save_button = ttk.Button(newWindow,text = "Save", \
+                            command = lambda a=inputtxt, b=widget: self.Save_Note_Text(a,b))
+        note_save_button.pack()
+
     ###################   Save/Load/Reload    ###################
     def Save_2_File(self):
         print("Saving...")
@@ -185,6 +210,8 @@ class TripPlanner:
           
         with open('trip.json', "w+") as fout:
             json.dump(local_rows_dict, fout)
+        
+        print("Saved")
     
     def Formate_Validate_Content(self):
         pass
@@ -298,6 +325,13 @@ class TripPlanner:
     def Delete_Row(self, widget:ttk.Button):
         self.all_rows_dict.pop(widget.master.winfo_name())
         widget.master.destroy()
+
+    def Save_Note_Text(self,inputtxt:tk.Text,frame_note_butt:ttk.Button):
+        inp = inputtxt.get(1.0, "end-1c")
+        Note_Entry = ttk.Entry()
+        Note_Entry.insert(0,inp)
+        self.all_rows_dict[frame_note_butt.master.winfo_name()]["Notes"] = Note_Entry
+        self.Save_2_File()
 
 ##############################  End of CLASS   ############################
 
