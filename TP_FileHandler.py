@@ -18,14 +18,14 @@ class TP_FileHandler:
                 
             local_rows_dict[row]=local_row_dict
         
-        with open('trip.json', "w+") as fout:
+        with open('Trips/trip_Tests.json', "w+") as fout:
             json.dump(local_rows_dict, fout)
         
         print("Saved")
 
     def Load_File():
         temp_rows_dict ={}
-        if os.path.exists("trip.json"):
-            with open("trip.json", "r+") as read_file:
+        if os.path.exists("Trips/trip_Tests.json"):
+            with open("Trips/trip_Tests.json", "r+") as read_file:
                 temp_rows_dict = json.load(read_file)
         return temp_rows_dict
