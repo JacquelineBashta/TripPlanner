@@ -1,7 +1,7 @@
 import json
 import os
 
-
+file_name = 'Trips/Ireland.json'
 class TP_FileHandler:
     
     def __init__(self):  
@@ -18,14 +18,14 @@ class TP_FileHandler:
                 
             local_rows_dict[row]=local_row_dict
         
-        with open('Trips/trip_Tests.json', "w+") as fout:
+        with open(file_name, "w+") as fout:
             json.dump(local_rows_dict, fout)
         
         print("Saved")
 
     def Load_File():
         temp_rows_dict ={}
-        if os.path.exists("Trips/trip_Tests.json"):
-            with open("Trips/trip_Tests.json", "r+") as read_file:
+        if os.path.exists(file_name):
+            with open(file_name, "r+") as read_file:
                 temp_rows_dict = json.load(read_file)
         return temp_rows_dict
