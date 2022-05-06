@@ -27,8 +27,8 @@ def main():
         for row in local_rows_dict:
             trip.Row_Entry()
             for key, value in local_rows_dict[row].items():
-                trip.all_rows_dict[row][key].delete(0,'end')
-                trip.all_rows_dict[row][key].insert(0,value)
+                trip.all_gui_rows_dict[row][key].delete(0,'end')
+                trip.all_gui_rows_dict[row][key].insert(0,value)
     else:
         #else create new trip        
         trip.Row_Entry()

@@ -6,6 +6,7 @@ import webbrowser
 from tkcalendar import DateEntry
 
 from RowEntry import RowEntry
+from TP_Data import Action_E, TP_Data
 from TP_FileHandler import TP_FileHandler
 from ValidationLog import ValidationLog as VL
 
@@ -28,8 +29,8 @@ class TP_GUI:
         self.root.wm_attributes("-topmost", 1)
         self.register_validation = self.root.register(self.Validation)
         self.main_frame = self.Setup_Main_Frame()
-        self.all_rows_dict = {}
         self.color = "lightgrey"
+        self.tp_data_obj = TP_Data()
 
     def Setup_Main_Frame(self):
         frame = ttk.Frame(self.root)
@@ -72,7 +73,7 @@ class TP_GUI:
         menubar.add_cascade(label ='File', menu = file)
         file.add_command(label ='New Trip', command = None)
         file.add_command(label ='Open...', command = None)
-        file.add_command(label ='Save', command =lambda: TP_FileHandler.Save_File(self.all_rows_dict))
+        file.add_command(label ='Save', command =lambda: TP_FileHandler.Save_File(self.tp_data_obj.all_frames_dict))
         file.add_separator()
         file.add_command(label ='Exit', command = self.root.destroy)
 
@@ -80,7 +81,7 @@ class TP_GUI:
         self.root.config(menu=menubar)            
         
     ################      AddingFrames      ######################
-    def Block_Entry(self,frame,row_dict, column_num:int, block_name:str, *entry_names ):
+    def Block_Entry(self,frame,gui_row_dict, column_num:int, block_name:str, *entry_names ):
         pad = 5
         entry_count = len(entry_names)
         
@@ -92,7 +93,7 @@ class TP_GUI:
         label.grid(row=self.current_grid_row,rowspan=entry_count, column=column_num,padx=pad, pady=pad)
 
         for entry_name in entry_names:
-            
+            #Create individual Entry objects
             if entry_name == "Date":
                 entry = DateEntry(canvas,selectmode='day')
                 
@@ -112,12 +113,18 @@ class TP_GUI:
             entry.grid(row=self.current_grid_row, column=column_num+1,padx=pad, pady=pad)
             entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'), font=Font_Small)
             
-            row_dict[block_name+"_"+entry_name] = entry
+            #gui_row_dict[block_name+"_"+entry_name] = entry
+
+            frame_name = frame.winfo_name()
+            widget_name = block_name+"_"+ entry_name
+
+            self.tp_data_obj.Widget_Change(Action_E.Set, frame_name, widget_name, entry)
+            
             self.current_grid_row +=1
             
         self.current_grid_row= 0
     
-    def Row_Entry_Options(self,frame,row_dict,column_num):
+    def Row_Entry_Options(self,frame,gui_row_dict,column_num):
         pad = 5
         canvas = tk.Canvas(frame)
         canvas.configure(bd=3, relief="groove", highlightthickness=1)
@@ -128,7 +135,7 @@ class TP_GUI:
         button_save_note.pack()
         
         #Workaround to treat the Notes (get/delete) same as other Entries
-        row_dict["Notes"] = tk.Entry()
+        gui_row_dict["Notes"] = tk.Entry()
         
         button_delete_row = ttk.Button(canvas, text="Delete Row")
         button_delete_row.config(command=lambda: self.Delete_Row(button_delete_row))
@@ -146,16 +153,17 @@ class TP_GUI:
         frame.configure(bg=self.color, bd=3, relief="groove", highlightthickness=2)
         frame.pack()
 
-        row_dict = {}
-        self.Block_Entry(frame,row_dict, 0,"From","Location","Date","Time")
-        self.Block_Entry(frame,row_dict, 1,"To","Location","Date","Time")
-        self.Block_Entry(frame,row_dict, 2,"By","MeansOfTransport","LinkForOffer","Cost")
-        self.Block_Entry(frame,row_dict, 3,"Stay","Where","LinkForOffer","Cost")
-        self.Block_Entry(frame,row_dict, 4,"Misc","Weather","Currency","MobileData")
+        gui_row_dict = {}
+        self.Block_Entry(frame,gui_row_dict, 0,"From","Location","Date","Time")
+        self.Block_Entry(frame,gui_row_dict, 1,"To","Location","Date","Time")
+        self.Block_Entry(frame,gui_row_dict, 2,"By","MeansOfTransport","LinkForOffer","Cost")
+        self.Block_Entry(frame,gui_row_dict, 3,"Stay","Where","LinkForOffer","Cost")
+        self.Block_Entry(frame,gui_row_dict, 4,"Misc","Weather","Currency","MobileData")
         
-        self.Row_Entry_Options(frame,row_dict, 5)
+        self.Row_Entry_Options(frame,gui_row_dict, 5)
         
-        self.all_rows_dict[frame.winfo_name()]= row_dict      
+        #replaced by Widget_Change
+        #self.all_gui_rows_dict[frame.winfo_name()]= gui_row_dict      
 
     def Add_Summary_Frame(self):
         frame_summary = tk.Frame(self.main_frame)
@@ -194,7 +202,13 @@ class TP_GUI:
 
         inputtxt = tk.Text(newWindow, height = 15, width = 35)
         inputtxt.pack()
-        inputtxt.insert(1.0, self.all_rows_dict[widget.master.master.winfo_name()]["Notes"].get())
+
+        #Get the Note info from dict to the gui
+        note_entry = ttk.Entry
+        #replaced by Widget_Change
+        self.tp_data_obj.Widget_Change(Action_E.Get, widget.master.master.winfo_name(), "Notes", note_entry)
+        note_text = note_entry.get()
+        inputtxt.insert(1.0, note_text)
         
         # Button Creation
         note_save_button = ttk.Button(newWindow,text = "Save", \
@@ -214,16 +228,16 @@ class TP_GUI:
         current_row = None
         
         # collect label_trip_duration_value
-        first_row = RowEntry(list(self.all_rows_dict.values())[0])
-        last_row = RowEntry(list(self.all_rows_dict.values())[-1])
+        first_row = RowEntry(list(self.tp_data_obj.all_frames_dict.values())[0])
+        last_row = RowEntry(list(self.tp_data_obj.all_frames_dict.values())[-1])
 
         start_date = first_row.Get_From_DateTime()
         end_date = last_row.Get_To_DateTime()
         duration = (end_date - start_date).days
 
 
-        for row in self.all_rows_dict:
-            current_row = RowEntry(self.all_rows_dict[row])
+        for row in self.tp_data_obj.all_frames_dict:
+            current_row = RowEntry(self.tp_data_obj.all_frames_dict[row])
             # collect label_trip_cost_value
             total_cost += current_row.Get_By_Cost()
             total_cost += current_row.Get_Stay_Cost()
@@ -234,7 +248,7 @@ class TP_GUI:
                     diff = current_row.Get_From_DateTime().date() - previous_row.Get_To_DateTime().date()
                     trip_in_glance += previous_row.To_Location +" for "+ str(diff.days) +" Days \n"
             
-            previous_row = RowEntry(self.all_rows_dict[row])
+            previous_row = RowEntry(self.tp_data_obj.all_frames_dict[row])
 
 
         self.label_trip_cost_value.config(text = str(total_cost) +" €") 
@@ -245,8 +259,8 @@ class TP_GUI:
         previous_row = None
         current_row = None
         
-        for row in self.all_rows_dict:
-            current_row = RowEntry(self.all_rows_dict[row])
+        for row in self.tp_data_obj.all_frames_dict:
+            current_row = RowEntry(self.tp_data_obj.all_frames_dict[row])
       
             # for each row validate entries not having default values
             
@@ -289,22 +303,26 @@ class TP_GUI:
                 
                 #3) label summary to collect total time dates / days in each city / total cost
 
-            previous_row = RowEntry(self.all_rows_dict[row])
+            previous_row = RowEntry(self.tp_data_obj.all_frames_dict[row])
     
     
                 
 
 
     def Delete_Row(self, widget:ttk.Button):
-        self.all_rows_dict.pop(widget.master.master.winfo_name())
+        self.tp_data_obj.all_frames_dict.pop(widget.master.master.winfo_name())
         widget.master.master.destroy()
 
     def Save_Note_Text(self,inputtxt:tk.Text,frame_note_butt:ttk.Button):
         inp = inputtxt.get(1.0, "end-1c")
         Note_Entry = ttk.Entry()
         Note_Entry.insert(0,inp)
-        self.all_rows_dict[frame_note_butt.master.master.winfo_name()]["Notes"] = Note_Entry
-        TP_FileHandler.Save_File(self.all_rows_dict)
+        
+        #replaced by Widget_Change
+        #self.all_gui_rows_dict[frame_note_butt.master.master.winfo_name()]["Notes"] = Note_Entry
+        self.tp_data_obj.Widget_Change(Action_E.Set, frame_note_butt.master.master.winfo_name(), "Notes", Note_Entry)
+        
+        TP_FileHandler.Save_File(self.tp_data_obj.all_frames_dict)
 
 ##############################  End of CLASS   ############################
 
