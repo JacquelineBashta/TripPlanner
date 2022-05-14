@@ -1,0 +1,594 @@
+************* Module trip_planner.main
+main.py:12:0: C0303: Trailing whitespace (trailing-whitespace)
+main.py:15:0: C0303: Trailing whitespace (trailing-whitespace)
+main.py:32:29: C0303: Trailing whitespace (trailing-whitespace)
+main.py:34:0: C0303: Trailing whitespace (trailing-whitespace)
+main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+main.py:6:0: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module trip_planner.RowEntry
+RowEntry.py:7:37: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:7:0: W0311: Bad indentation. Found 9 spaces, expected 4 (bad-indentation)
+RowEntry.py:8:31: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:8:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:9:0: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:10:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:11:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:12:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:13:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:14:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:15:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:16:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:17:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:18:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:19:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:20:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:21:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:22:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:23:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:24:63: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:24:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:26:0: W0311: Bad indentation. Found 9 spaces, expected 4 (bad-indentation)
+RowEntry.py:27:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:28:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:29:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:30:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:31:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:32:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:33:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:34:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:35:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:36:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:37:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:38:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:39:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:40:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:41:37: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:41:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:43:35: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:43:0: W0311: Bad indentation. Found 9 spaces, expected 4 (bad-indentation)
+RowEntry.py:44:0: C0301: Line too long (107/100) (line-too-long)
+RowEntry.py:44:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:45:0: C0301: Line too long (126/100) (line-too-long)
+RowEntry.py:46:0: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:47:0: W0311: Bad indentation. Found 9 spaces, expected 4 (bad-indentation)
+RowEntry.py:48:0: C0301: Line too long (111/100) (line-too-long)
+RowEntry.py:48:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:49:0: C0301: Line too long (132/100) (line-too-long)
+RowEntry.py:50:0: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:51:0: W0311: Bad indentation. Found 9 spaces, expected 4 (bad-indentation)
+RowEntry.py:52:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:53:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:54:40: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:54:0: W0311: Bad indentation. Found 15 spaces, expected 12 (bad-indentation)
+RowEntry.py:55:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:56:0: W0311: Bad indentation. Found 15 spaces, expected 12 (bad-indentation)
+RowEntry.py:57:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:58:0: W0311: Bad indentation. Found 15 spaces, expected 12 (bad-indentation)
+RowEntry.py:59:0: W0311: Bad indentation. Found 15 spaces, expected 12 (bad-indentation)
+RowEntry.py:60:30: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:60:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:62:0: W0311: Bad indentation. Found 9 spaces, expected 4 (bad-indentation)
+RowEntry.py:63:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:65:0: W0311: Bad indentation. Found 9 spaces, expected 4 (bad-indentation)
+RowEntry.py:66:53: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:66:0: W0311: Bad indentation. Found 12 spaces, expected 8 (bad-indentation)
+RowEntry.py:67:0: C0303: Trailing whitespace (trailing-whitespace)
+RowEntry.py:1:0: C0103: Module name "RowEntry" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+RowEntry.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+RowEntry.py:4:0: E0401: Unable to import 'ValidationLog' (import-error)
+RowEntry.py:10:12: C0103: Attribute name "From_Location" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:11:12: C0103: Attribute name "From_Date" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:12:12: C0103: Attribute name "From_Time" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:13:12: C0103: Attribute name "To_Location" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:14:12: C0103: Attribute name "To_Date" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:15:12: C0103: Attribute name "To_Time" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:16:12: C0103: Attribute name "By_MeansOfTransport" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:17:12: C0103: Attribute name "By_LinkForOffer" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:18:12: C0103: Attribute name "By_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:19:12: C0103: Attribute name "Stay_Where" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:20:12: C0103: Attribute name "Stay_LinkForOffer" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:21:12: C0103: Attribute name "Stay_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:22:12: C0103: Attribute name "Misc_Weather" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:23:12: C0103: Attribute name "Misc_Currency" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:24:12: C0103: Attribute name "Misc_MobileData" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+RowEntry.py:6:0: R0902: Too many instance attributes (15/7) (too-many-instance-attributes)
+RowEntry.py:26:9: C0103: Method name "Set_Defaults" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:26:9: C0116: Missing function or method docstring (missing-function-docstring)
+RowEntry.py:43:9: C0103: Method name "Get_To_DateTime" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:43:9: C0116: Missing function or method docstring (missing-function-docstring)
+RowEntry.py:47:9: C0103: Method name "Get_From_DateTime" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:47:9: C0116: Missing function or method docstring (missing-function-docstring)
+RowEntry.py:51:9: C0103: Method name "Is_valid_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:51:9: C0116: Missing function or method docstring (missing-function-docstring)
+RowEntry.py:55:17: R1714: Consider merging these comparisons with "in" to "cost in ('Cost', '')" (consider-using-in)
+RowEntry.py:51:9: R0201: Method could be a function (no-self-use)
+RowEntry.py:62:9: C0103: Method name "Get_By_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:62:9: C0116: Missing function or method docstring (missing-function-docstring)
+RowEntry.py:65:9: C0103: Method name "Get_Stay_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+RowEntry.py:65:9: C0116: Missing function or method docstring (missing-function-docstring)
+RowEntry.py:2:0: W0611: Unused tkinter imported as tk (unused-import)
+************* Module trip_planner.StaticCodeAnalysis
+StaticCodeAnalysis.py:21:0: C0305: Trailing newlines (trailing-newlines)
+StaticCodeAnalysis.py:1:0: C0103: Module name "StaticCodeAnalysis" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+StaticCodeAnalysis.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+StaticCodeAnalysis.py:15:5: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+StaticCodeAnalysis.py:3:0: W0611: Unused import pylint (unused-import)
+StaticCodeAnalysis.py:4:0: W0611: Unused epylint imported from pylint as lint (unused-import)
+StaticCodeAnalysis.py:9:0: W0611: Unused StringIO imported from io (unused-import)
+StaticCodeAnalysis.py:9:0: C0411: standard import "from io import StringIO" should be placed before "import pylint" (wrong-import-order)
+************* Module trip_planner.Test
+Test.py:4:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:6:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:10:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:14:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:19:11: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:27:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:28:34: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:29:0: C0301: Line too long (135/100) (line-too-long)
+Test.py:56:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:59:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:63:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:64:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:68:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:72:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:76:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:79:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:86:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:88:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:92:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:95:43: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:98:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:100:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:104:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:105:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:108:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:110:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:117:0: C0303: Trailing whitespace (trailing-whitespace)
+Test.py:119:0: C0304: Final newline missing (missing-final-newline)
+Test.py:1:0: C0103: Module name "Test" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+Test.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+Test.py:1:0: W0401: Wildcard import tkinter (wildcard-import)
+Test.py:5:0: C0116: Missing function or method docstring (missing-function-docstring)
+Test.py:5:13: W0622: Redefining built-in 'input' (redefined-builtin)
+Test.py:7:4: R1705: Unnecessary "elif" after "return", remove the leading "el" from "elif" (no-else-return)
+Test.py:19:0: C0116: Missing function or method docstring (missing-function-docstring)
+Test.py:21:4: C0103: Variable name "ww" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+Test.py:23:4: C0103: Variable name "e" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+Test.py:32:0: C0116: Missing function or method docstring (missing-function-docstring)
+Test.py:33:4: C0415: Import outside toplevel (datetime.datetime) (import-outside-toplevel)
+Test.py:42:0: C0116: Missing function or method docstring (missing-function-docstring)
+Test.py:45:4: W0621: Redefining name 'callback' from outer scope (line 5) (redefined-outer-name)
+Test.py:43:4: C0415: Import outside toplevel (webbrowser) (import-outside-toplevel)
+Test.py:43:4: W0611: Unused import webbrowser (unused-import)
+Test.py:67:0: C0103: Function name "openNewWindow" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+Test.py:67:0: C0116: Missing function or method docstring (missing-function-docstring)
+Test.py:71:4: C0103: Variable name "newWindow" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+Test.py:94:4: C0103: Variable name "printButton" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+Test.py:101:0: C0103: Function name "printInput" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+Test.py:101:0: C0116: Missing function or method docstring (missing-function-docstring)
+Test.py:3:0: W0611: Unused DateEntry imported from tkcalendar (unused-import)
+Test.py:1:0: W0614: Unused import(s) enum, sys, TclError, re, wantobjects, TkVersion, TclVersion, READABLE, WRITABLE, EXCEPTION, EventType, Event, NoDefaultRoot, Variable, StringVar, IntVar, DoubleVar, BooleanVar, getint, getdouble, getboolean, Misc, CallWrapper, XView, YView, Wm, Tcl, Pack, Place, Grid, BaseWidget, Widget, Canvas, Checkbutton, Listbox, Menu, Menubutton, Message, Radiobutton, Scale, Scrollbar, OptionMenu, Image, PhotoImage, BitmapImage, image_names, image_types, Spinbox, LabelFrame, PanedWindow, NO, FALSE, OFF, YES, TRUE, ON, N, S, W, E, NW, SW, NE, SE, NS, EW, NSEW, CENTER, NONE, X, Y, BOTH, LEFT, TOP, RIGHT, BOTTOM, RAISED, SUNKEN, FLAT, RIDGE, GROOVE, SOLID, HORIZONTAL, VERTICAL, NUMERIC, CHAR, WORD, BASELINE, INSIDE, OUTSIDE, SEL, SEL_FIRST, SEL_LAST, INSERT, CURRENT, ANCHOR, ALL, NORMAL, DISABLED, ACTIVE, HIDDEN, CASCADE, CHECKBUTTON, COMMAND, RADIOBUTTON, SEPARATOR, SINGLE, BROWSE, MULTIPLE, EXTENDED, DOTBOX, UNDERLINE, PIESLICE, CHORD, ARC, FIRST, LAST, BUTT, PROJECTING, ROUND, BEVEL, MITER, MOVETO, SCROLL, UNITS and PAGES from wildcard import of tkinter (unused-wildcard-import)
+************* Module trip_planner.TimeEntry
+TimeEntry.py:19:0: C0303: Trailing whitespace (trailing-whitespace)
+TimeEntry.py:20:0: C0301: Line too long (113/100) (line-too-long)
+TimeEntry.py:21:0: C0301: Line too long (109/100) (line-too-long)
+TimeEntry.py:30:0: C0303: Trailing whitespace (trailing-whitespace)
+TimeEntry.py:37:0: C0303: Trailing whitespace (trailing-whitespace)
+TimeEntry.py:41:0: C0304: Final newline missing (missing-final-newline)
+TimeEntry.py:1:0: C0103: Module name "TimeEntry" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+TimeEntry.py:15:0: C0115: Missing class docstring (missing-class-docstring)
+TimeEntry.py:15:0: R0901: Too many ancestors (10/7) (too-many-ancestors)
+TimeEntry.py:18:8: W0233: __init__ method from a non direct base class 'Entry' is called (non-parent-init-called)
+TimeEntry.py:18:8: W0233: __init__ method from a non direct base class 'Entry' is called (non-parent-init-called)
+TimeEntry.py:17:4: W0231: __init__ method from base class 'Entry' is not called (super-init-not-called)
+TimeEntry.py:6:0: W0611: Unused platform imported from sys (unused-import)
+************* Module trip_planner.TP_Data
+TP_Data.py:13:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_Data.py:20:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_Data.py:22:11: C0303: Trailing whitespace (trailing-whitespace)
+TP_Data.py:25:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_Data.py:34:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_Data.py:36:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_Data.py:37:0: C0304: Final newline missing (missing-final-newline)
+TP_Data.py:1:0: C0103: Module name "TP_Data" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+TP_Data.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+TP_Data.py:6:0: C0103: Class name "TP_Data" doesn't conform to PascalCase naming style ('[^\\W\\da-z][^\\W_]+$' pattern) (invalid-name)
+TP_Data.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+TP_Data.py:9:8: W0107: Unnecessary pass statement (unnecessary-pass)
+TP_Data.py:11:4: C0103: Method name "Entry_Change" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_Data.py:11:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_Data.py:11:4: E0213: Method should have "self" as first argument (no-self-argument)
+TP_Data.py:19:8: W0107: Unnecessary pass statement (unnecessary-pass)
+TP_Data.py:11:28: W0613: Unused argument 'current_row' (unused-argument)
+TP_Data.py:11:40: W0613: Unused argument 'widget_key' (unused-argument)
+TP_Data.py:11:51: W0613: Unused argument 'widget_value' (unused-argument)
+TP_Data.py:21:4: R0201: Method could be a function (no-self-use)
+TP_Data.py:3:0: W0611: Unused ttk imported from tkinter (unused-import)
+************* Module trip_planner.TP_FileHandler
+TP_FileHandler.py:6:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_FileHandler.py:7:23: C0303: Trailing whitespace (trailing-whitespace)
+TP_FileHandler.py:13:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_FileHandler.py:15:31: C0303: Trailing whitespace (trailing-whitespace)
+TP_FileHandler.py:18:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_FileHandler.py:20:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_FileHandler.py:23:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_FileHandler.py:31:0: C0304: Final newline missing (missing-final-newline)
+TP_FileHandler.py:1:0: C0103: Module name "TP_FileHandler" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+TP_FileHandler.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+TP_FileHandler.py:4:0: C0103: Constant name "file_name" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+TP_FileHandler.py:5:0: C0103: Class name "TP_FileHandler" doesn't conform to PascalCase naming style ('[^\\W\\da-z][^\\W_]+$' pattern) (invalid-name)
+TP_FileHandler.py:5:0: C0115: Missing class docstring (missing-class-docstring)
+TP_FileHandler.py:10:4: C0103: Method name "Save_File" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_FileHandler.py:10:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_FileHandler.py:10:4: E0213: Method should have "self" as first argument (no-self-argument)
+TP_FileHandler.py:14:19: E1133: Non-iterable value all_rows_dict is used in an iterating context (not-an-iterable)
+TP_FileHandler.py:16:25: E1136: Value 'all_rows_dict' is unsubscriptable (unsubscriptable-object)
+TP_FileHandler.py:17:38: E1136: Value 'all_rows_dict' is unsubscriptable (unsubscriptable-object)
+TP_FileHandler.py:21:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+TP_FileHandler.py:26:4: C0103: Method name "Load_File" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_FileHandler.py:26:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_FileHandler.py:26:4: E0211: Method has no argument (no-method-argument)
+TP_FileHandler.py:29:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+************* Module trip_planner.TP_GUI
+TP_GUI.py:21:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:37:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:40:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:49:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:53:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:58:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:61:29: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:62:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:64:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:69:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:75:0: C0301: Line too long (102/100) (line-too-long)
+TP_GUI.py:80:38: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:81:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:86:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:90:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:92:0: C0301: Line too long (103/100) (line-too-long)
+TP_GUI.py:95:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:98:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:102:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:107:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:111:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:113:0: C0301: Line too long (114/100) (line-too-long)
+TP_GUI.py:114:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:117:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:119:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:125:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:129:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:132:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:136:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:143:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:155:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:157:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:158:56: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:164:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:167:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:173:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:176:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:179:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:182:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:183:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:187:71: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:188:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:198:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:204:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:207:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:212:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:215:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:234:0: C0301: Line too long (105/100) (line-too-long)
+TP_GUI.py:236:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:240:71: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:241:0: C0301: Line too long (155/100) (line-too-long)
+TP_GUI.py:243:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:247:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:250:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:252:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:256:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:260:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:263:84: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:264:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:267:0: C0301: Line too long (122/100) (line-too-long)
+TP_GUI.py:268:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:271:0: C0301: Line too long (115/100) (line-too-long)
+TP_GUI.py:272:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:273:59: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:276:122: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:276:0: C0301: Line too long (122/100) (line-too-long)
+TP_GUI.py:281:25: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:283:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:285:0: C0301: Line too long (152/100) (line-too-long)
+TP_GUI.py:287:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:289:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:293:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:294:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:295:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:312:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:314:0: C0303: Trailing whitespace (trailing-whitespace)
+TP_GUI.py:315:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
+TP_GUI.py:317:0: C0305: Trailing newlines (trailing-newlines)
+TP_GUI.py:1:0: C0103: Module name "TP_GUI" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+TP_GUI.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+TP_GUI.py:10:0: E0401: Unable to import 'ValidationLog' (import-error)
+TP_GUI.py:20:0: C0103: Class name "TP_GUI" doesn't conform to PascalCase naming style ('[^\\W\\da-z][^\\W_]+$' pattern) (invalid-name)
+TP_GUI.py:20:0: C0115: Missing class docstring (missing-class-docstring)
+TP_GUI.py:20:0: R0902: Too many instance attributes (9/7) (too-many-instance-attributes)
+TP_GUI.py:34:4: C0103: Method name "Setup_Main_Frame" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:34:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:52:4: C0103: Method name "Validation" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:52:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:52:24: W0622: Redefining built-in 'input' (redefined-builtin)
+TP_GUI.py:52:24: W0613: Unused argument 'input' (unused-argument)
+TP_GUI.py:66:4: C0103: Method name "File_Menu" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:66:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:83:4: C0103: Method name "Block_Entry" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:83:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:120:4: C0103: Method name "Row_Entry_Options" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:120:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:137:4: C0103: Method name "Row_Entry" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:137:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:160:4: C0103: Method name "Add_Summary_Frame" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:160:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:189:4: C0103: Method name "Open_Note_Window" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:189:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:190:8: C0103: Variable name "newWindow" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:205:4: C0103: Method name "Formate_Validate_Content" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:205:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:208:4: C0103: Method name "Update_Summary" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:208:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:225:8: C0206: Consider iterating with .items() (consider-using-dict-items)
+TP_GUI.py:232:15: C0121: Comparison 'previous_row != None' should be 'previous_row is not None' (singleton-comparison)
+TP_GUI.py:244:4: C0103: Method name "Logical_Validate_Content" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:244:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:248:8: C0206: Consider iterating with .items() (consider-using-dict-items)
+TP_GUI.py:253:15: C0121: Comparison 'previous_row != None' should be 'previous_row is not None' (singleton-comparison)
+TP_GUI.py:270:23: R1714: Consider merging these comparisons with "in" to "previous_row.Stay_Where in ('', 'Where')" (consider-using-in)
+TP_GUI.py:298:4: C0103: Method name "Delete_Row" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:298:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:302:4: C0103: Method name "Save_Note_Text" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:302:4: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:304:8: C0103: Variable name "Note_Entry" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:166:8: W0201: Attribute 'label_trip_duration_value' defined outside __init__ (attribute-defined-outside-init)
+TP_GUI.py:169:8: W0201: Attribute 'label_trip_in_glance_value' defined outside __init__ (attribute-defined-outside-init)
+TP_GUI.py:172:8: W0201: Attribute 'label_trip_cost_value' defined outside __init__ (attribute-defined-outside-init)
+TP_GUI.py:311:0: C0103: Function name "Open_Hyberlink" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+TP_GUI.py:311:0: C0116: Missing function or method docstring (missing-function-docstring)
+TP_GUI.py:1:0: W0611: Unused Lambda imported from ast (unused-import)
+TP_GUI.py:2:0: W0611: Unused import logging (unused-import)
+TP_GUI.py:10:0: C0411: third party import "from ValidationLog import ValidationLog as VL" should be placed before "from RowEntry import RowEntry" (wrong-import-order)
+************* Module trip_planner.validation_log
+validation_log.py:1:3: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:9:7: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:12:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:14:11: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:17:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:26:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:28:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:30:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:31:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:33:11: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:36:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:45:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:47:0: C0303: Trailing whitespace (trailing-whitespace)
+validation_log.py:48:0: C0304: Final newline missing (missing-final-newline)
+validation_log.py:13:4: R0201: Method could be a function (no-self-use)
+validation_log.py:32:4: R0201: Method could be a function (no-self-use)
+validation_log.py:1:0: R0801: Similar lines in 2 files
+==trip_planner.TP_Data:[20:37]
+==trip_planner.validation_log:[12:31]
+    def validation_log(self,data:str):
+        """
+        This is a comment
+        """
+
+        #create a logger
+        logger = logging.getLogger('mylogger')
+        logger.setLevel(logging.ERROR)
+        handler = logging.FileHandler('mylog.log')
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        #set filter to log only ERROR lines
+        logger.addHandler(handler)
+
+        logger.error(data)
+
+        print("ERROR - " + data)
+
+ (duplicate-code)
+validation_log.py:1:0: R0801: Similar lines in 2 files
+==trip_planner.TP_Data:[26:37]
+==trip_planner.validation_log:[37:48]
+        logger = logging.getLogger('mylogger')
+        logger.setLevel(logging.ERROR)
+        handler = logging.FileHandler('mylog.log')
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        #set filter to log only ERROR lines
+        logger.addHandler(handler)
+
+        logger.error(data)
+
+        print("ERROR - " + data) (duplicate-code)
+
+
+Report
+======
+430 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |10     |10         |=          |30.00       |70.00    |
++---------+-------+-----------+-----------+------------+---------+
+|class    |6      |6          |=          |16.67       |50.00    |
++---------+-------+-----------+-----------+------------+---------+
+|method   |33     |33         |=          |33.33       |66.67    |
++---------+-------+-----------+-----------+------------+---------+
+|function |9      |9          |=          |11.11       |33.33    |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    RowEntry (trip_planner.TP_GUI)
+    TP_FileHandler (trip_planner.TP_GUI,trip_planner.main)
+    TP_GUI (trip_planner.main)
+    pylint (trip_planner.StaticCodeAnalysis)
+      \-epylint (trip_planner.StaticCodeAnalysis)
+      \-lint 
+      | \-Run (trip_planner.StaticCodeAnalysis)
+      | \-pylinter (trip_planner.StaticCodeAnalysis)
+      \-reporters 
+        \-text (trip_planner.StaticCodeAnalysis)
+    tkcalendar 
+      \-DateEntry (trip_planner.TP_GUI,trip_planner.Test)
+
+
+
+Modules dependencies graph
+--------------------------
+imports graph has been written to Reports/gr.dot
+external imports graph has been written to Reports/egr.dot
+internal imports graph has been written to Reports/igr.dot
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |466    |62.97 |466      |=          |
++----------+-------+------+---------+-----------+
+|docstring |23     |3.11  |23       |=          |
++----------+-------+------+---------+-----------+
+|comment   |66     |8.92  |66       |=          |
++----------+-------+------+---------+-----------+
+|empty     |185    |25.00 |185      |=          |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |0          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |269    |269      |269        |
++-----------+-------+---------+-----------+
+|refactor   |12     |14       |14         |
++-----------+-------+---------+-----------+
+|warning    |81     |81       |81         |
++-----------+-------+---------+-----------+
+|error      |8      |8        |8          |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-------------------------------+------------+
+|message id                     |occurrences |
++===============================+============+
+|trailing-whitespace            |138         |
++-------------------------------+------------+
+|invalid-name                   |57          |
++-------------------------------+------------+
+|bad-indentation                |51          |
++-------------------------------+------------+
+|missing-function-docstring     |30          |
++-------------------------------+------------+
+|line-too-long                  |16          |
++-------------------------------+------------+
+|unused-import                  |10          |
++-------------------------------+------------+
+|missing-module-docstring       |7           |
++-------------------------------+------------+
+|missing-final-newline          |5           |
++-------------------------------+------------+
+|missing-class-docstring        |5           |
++-------------------------------+------------+
+|unused-argument                |4           |
++-------------------------------+------------+
+|no-self-use                    |4           |
++-------------------------------+------------+
+|unspecified-encoding           |3           |
++-------------------------------+------------+
+|attribute-defined-outside-init |3           |
++-------------------------------+------------+
+|wrong-import-order             |2           |
++-------------------------------+------------+
+|unsubscriptable-object         |2           |
++-------------------------------+------------+
+|unnecessary-pass               |2           |
++-------------------------------+------------+
+|trailing-newlines              |2           |
++-------------------------------+------------+
+|too-many-instance-attributes   |2           |
++-------------------------------+------------+
+|singleton-comparison           |2           |
++-------------------------------+------------+
+|redefined-builtin              |2           |
++-------------------------------+------------+
+|non-parent-init-called         |2           |
++-------------------------------+------------+
+|no-self-argument               |2           |
++-------------------------------+------------+
+|import-outside-toplevel        |2           |
++-------------------------------+------------+
+|import-error                   |2           |
++-------------------------------+------------+
+|duplicate-code                 |2           |
++-------------------------------+------------+
+|consider-using-in              |2           |
++-------------------------------+------------+
+|consider-using-dict-items      |2           |
++-------------------------------+------------+
+|wildcard-import                |1           |
++-------------------------------+------------+
+|unused-wildcard-import         |1           |
++-------------------------------+------------+
+|too-many-ancestors             |1           |
++-------------------------------+------------+
+|superfluous-parens             |1           |
++-------------------------------+------------+
+|super-init-not-called          |1           |
++-------------------------------+------------+
+|redefined-outer-name           |1           |
++-------------------------------+------------+
+|not-an-iterable                |1           |
++-------------------------------+------------+
+|no-method-argument             |1           |
++-------------------------------+------------+
+|no-else-return                 |1           |
++-------------------------------+------------+
+
+
+
+
+------------------------------------------------------------------
+Your code has been rated at 0.65/10 (previous run: 0.60/10, +0.05)
+

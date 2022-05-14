@@ -1,0 +1,5 @@
+digraph "igr" {
+rankdir=LR
+charset="utf-8"
+URL="." node[shape="box"]
+}

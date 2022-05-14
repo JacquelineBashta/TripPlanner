@@ -1,5 +1,4 @@
-###################   MAIN    ###################        
-import os
+###################   MAIN    ##################
 from TP_FileHandler import TP_FileHandler
 from TP_GUI import TP_GUI
 
@@ -24,7 +23,7 @@ def main():
         for row in temp_rows_dict:
             local_rows_dict["!frame"+str(row_count)] =  temp_rows_dict[row]
             row_count += 1
-        for row in local_rows_dict:
+        for row in local_rows_dict.items():
             trip.Row_Entry()
             for key, value in local_rows_dict[row].items():
                 trip.all_rows_dict[row][key].delete(0,'end')
