@@ -8,7 +8,7 @@ from tkcalendar import DateEntry
 from RowEntry import RowEntry
 from TP_Data import Action_E, TP_Data
 from TP_FileHandler import TP_FileHandler
-from ValidationLog import ValidationLog as VL
+from validation_log import ValidationLog as VL
 
 TRANSITION_TIME_DEFAULT = 15  #15 min
 TRANSITION_TIME_FLIGHT = 2*60 #2 hours
