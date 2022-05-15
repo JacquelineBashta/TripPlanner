@@ -1,6 +1,7 @@
 ###################   MAIN    ##################
 from TP_FileHandler import TP_FileHandler
 from TP_GUI import TP_GUI
+from TP_Data import Action_E, TP_Data
 
 
 def main():
@@ -23,11 +24,9 @@ def main():
         for row in temp_rows_dict:
             local_rows_dict["!frame"+str(row_count)] =  temp_rows_dict[row]
             row_count += 1
-        for row in local_rows_dict.items():
+        for row in local_rows_dict.keys():
             trip.Row_Entry()
-            for key, value in local_rows_dict[row].items():
-                trip.all_gui_rows_dict[row][key].delete(0,'end')
-                trip.all_gui_rows_dict[row][key].insert(0,value)
+            trip.tp_data_obj.Frame_Change(Action_E.Set,row,local_rows_dict[row])
     else:
         #else create new trip        
         trip.Row_Entry()

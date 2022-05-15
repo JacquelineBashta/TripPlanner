@@ -1,7 +1,7 @@
 
 import tkinter as tk
 from datetime import datetime
-from ValidationLog import ValidationLog as VL
+from validation_log import ValidationLog as VL
 
 class RowEntry:
          def __init__(self,row:dict):     

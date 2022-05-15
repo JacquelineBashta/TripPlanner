@@ -81,7 +81,7 @@ class TP_GUI:
         self.root.config(menu=menubar)            
         
     ################      AddingFrames      ######################
-    def Block_Entry(self,frame,gui_row_dict, column_num:int, block_name:str, *entry_names ):
+    def Block_Entry(self,frame, column_num:int, block_name:str, *entry_names ):
         pad = 5
         entry_count = len(entry_names)
         
@@ -112,19 +112,17 @@ class TP_GUI:
             
             entry.grid(row=self.current_grid_row, column=column_num+1,padx=pad, pady=pad)
             entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'), font=Font_Small)
-            
-            #gui_row_dict[block_name+"_"+entry_name] = entry
 
             frame_name = frame.winfo_name()
             widget_name = block_name+"_"+ entry_name
 
-            self.tp_data_obj.Widget_Change(Action_E.Set, frame_name, widget_name, entry)
+            self.tp_data_obj.Widget_Change(Action_E.Create, frame_name, widget_name, widget_object = entry)
             
             self.current_grid_row +=1
             
         self.current_grid_row= 0
     
-    def Row_Entry_Options(self,frame,gui_row_dict,column_num):
+    def Row_Entry_Options(self,frame,column_num):
         pad = 5
         canvas = tk.Canvas(frame)
         canvas.configure(bd=3, relief="groove", highlightthickness=1)
@@ -135,7 +133,7 @@ class TP_GUI:
         button_save_note.pack()
         
         #Workaround to treat the Notes (get/delete) same as other Entries
-        gui_row_dict["Notes"] = tk.Entry()
+        self.tp_data_obj.Widget_Change(Action_E.Create, frame.winfo_name(), "Notes", widget_object= tk.Entry())
         
         button_delete_row = ttk.Button(canvas, text="Delete Row")
         button_delete_row.config(command=lambda: self.Delete_Row(button_delete_row))
@@ -153,17 +151,14 @@ class TP_GUI:
         frame.configure(bg=self.color, bd=3, relief="groove", highlightthickness=2)
         frame.pack()
 
-        gui_row_dict = {}
-        self.Block_Entry(frame,gui_row_dict, 0,"From","Location","Date","Time")
-        self.Block_Entry(frame,gui_row_dict, 1,"To","Location","Date","Time")
-        self.Block_Entry(frame,gui_row_dict, 2,"By","MeansOfTransport","LinkForOffer","Cost")
-        self.Block_Entry(frame,gui_row_dict, 3,"Stay","Where","LinkForOffer","Cost")
-        self.Block_Entry(frame,gui_row_dict, 4,"Misc","Weather","Currency","MobileData")
+        self.Block_Entry(frame, 0,"From","Location","Date","Time")
+        self.Block_Entry(frame, 1,"To","Location","Date","Time")
+        self.Block_Entry(frame, 2,"By","MeansOfTransport","LinkForOffer","Cost")
+        self.Block_Entry(frame, 3,"Stay","Where","LinkForOffer","Cost")
+        self.Block_Entry(frame, 4,"Misc","Weather","Currency","MobileData")
         
-        self.Row_Entry_Options(frame,gui_row_dict, 5)
-        
-        #replaced by Widget_Change
-        #self.all_gui_rows_dict[frame.winfo_name()]= gui_row_dict      
+        self.Row_Entry_Options(frame, 5)
+
 
     def Add_Summary_Frame(self):
         frame_summary = tk.Frame(self.main_frame)
@@ -204,11 +199,9 @@ class TP_GUI:
         inputtxt.pack()
 
         #Get the Note info from dict to the gui
-        note_entry = ttk.Entry
-        #replaced by Widget_Change
-        self.tp_data_obj.Widget_Change(Action_E.Get, widget.master.master.winfo_name(), "Notes", note_entry)
-        note_text = note_entry.get()
-        inputtxt.insert(1.0, note_text)
+        note_entry_text = self.tp_data_obj.Widget_Change(Action_E.Get, widget.master.master.winfo_name(), "Notes")
+        #note_text = note_entry.get()
+        inputtxt.insert(1.0, note_entry_text)
         
         # Button Creation
         note_save_button = ttk.Button(newWindow,text = "Save", \
@@ -314,13 +307,13 @@ class TP_GUI:
         widget.master.master.destroy()
 
     def Save_Note_Text(self,inputtxt:tk.Text,frame_note_butt:ttk.Button):
-        inp = inputtxt.get(1.0, "end-1c")
-        Note_Entry = ttk.Entry()
-        Note_Entry.insert(0,inp)
+        note_text = inputtxt.get(1.0, "end-1c")
+        #Note_Entry = ttk.Entry()
+        #Note_Entry.insert(0,inp)
         
         #replaced by Widget_Change
         #self.all_gui_rows_dict[frame_note_butt.master.master.winfo_name()]["Notes"] = Note_Entry
-        self.tp_data_obj.Widget_Change(Action_E.Set, frame_note_butt.master.master.winfo_name(), "Notes", Note_Entry)
+        self.tp_data_obj.Widget_Change(Action_E.Set, frame_note_butt.master.master.winfo_name(), "Notes", widget_value = note_text)
         
         TP_FileHandler.Save_File(self.tp_data_obj.all_frames_dict)
 

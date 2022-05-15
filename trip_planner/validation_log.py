@@ -10,7 +10,7 @@ class ValidationLog:
     This is a comment
     """
     
-    def validation_log(self,data:str):
+    def validation_log(data:str):
         """ 
         This is a comment
         """

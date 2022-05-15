@@ -1,7 +1,7 @@
 import json
 import os
 
-file_name = 'Trips/Ireland.json'
+file_name = './Trips/trip_Tests.json'
 class TP_FileHandler:
     
     def __init__(self):  
