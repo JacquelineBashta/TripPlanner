@@ -1,38 +1,19 @@
-import re
+
 import tkinter as tk
 from tkinter import ttk
-import webbrowser
-
 from tkcalendar import DateEntry
 
+from ViewData import ViewData
 from Controller import Action_E
 
+import webbrowser
 
 Font_Small = ("Comic Sans MS", 8, "normal")
 Font_Normal = ("Comic Sans MS", 10, "normal")
 Font_Bold = ("Comic Sans MS", 10, "bold")
 Row_Pad = 5
 
-class ViewData:
-    def __init__(self):
-        # View Data
-        self.From_Location       = None
-        self.From_Date           = None
-        self.From_Time           = None
-        self.To_Location         = None
-        self.To_Date             = None
-        self.To_Time             = None
-        self.By_MeansOfTransport = None
-        self.By_LinkForOffer     = None
-        self.By_Cost             = None
-        self.Stay_Where          = None
-        self.Stay_LinkForOffer   = None
-        self.Stay_Cost           = None
-        self.Misc_Weather        = None
-        self.Misc_Currency       = None
-        self.Misc_MobileData     = None
-        self.Notes               = None
-        
+
 class View(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
@@ -114,6 +95,7 @@ class View(ttk.Frame):
         button_add_row = ttk.Button(frame_summary, text="Add Row", command=self.add_row_entry)
         #button_add_row.place(relx =0.55,rely = 0)
         button_add_row.grid(row=2, column=0,columnspan=3,padx=5,pady=5)   
+    
     ##############      Note Window     ########################    
     def open_note_window(self,widget:ttk.Button):
         newWindow = tk.Toplevel(self.master)
@@ -133,32 +115,15 @@ class View(ttk.Frame):
         note_save_button = ttk.Button(newWindow,text = "Save", \
                             command = lambda a=inputtxt, b=widget: self.save_note_text(a,b))
         note_save_button.pack()   
-    
+
     def save_note_text(self,inputtxt:tk.Text,frame_note_butt:ttk.Button):
         
         note_text = inputtxt.get(1.0, "end-1c")
         self.handle_widget(Action_E.Set, frame_note_butt.master.master.winfo_name(), "Notes", widget_value = note_text)
         
         self.save_button_clicked()
-        
-    ##############      Others     ########################     
-    def set_controller(self, controller):
-        """
-        Set the controller
-        :param controller:
-        :return:
-        """
-        self.controller = controller
 
-    def handle_widget(self,action:Action_E,frame_name,widget_name,widget_object=None,widget_value=None):
-        """
-        Handle button click event
-        :return:
-        """
-        if self.controller:
-            self.controller.handle_widget_data()
-        return "Joka"
-          
+    ##############      Row Actions     ########################       
     def add_row_entry(self):
         """
         Handle button click event
@@ -184,10 +149,10 @@ class View(ttk.Frame):
         self.create_block(view_data, frame, 4,"Misc","Weather","Currency","MobileData")
         
         self.create_row_options( view_data,frame, 5)
-        
+
         if self.controller:
-            self.controller.add_row_entry_data()
-    
+            self.controller.add_row_entry_data(view_data,frame.winfo_name())
+
     def delete_row_entry(self, widget:ttk.Button):
         """
         delete the how row entry from view and database
@@ -196,8 +161,8 @@ class View(ttk.Frame):
         if self.controller:
             if self.controller.delete_row_data(widget.master.master.winfo_name()) == True:
                 widget.master.master.destroy()
-        
-    def create_block(self,view_data, frame, column_num:int, block_name:str, *entry_names):
+
+    def create_block(self,view_data:ViewData, frame, column_num:int, block_name:str, *entry_names):
  
         current_grid_row = 0
         entry_count = len(entry_names)
@@ -230,15 +195,13 @@ class View(ttk.Frame):
             entry.grid(row=current_grid_row, column=column_num+1,padx=Row_Pad, pady=Row_Pad)
             #entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'), font=Font_Small)
 
-            frame_name = frame.winfo_name()
-            widget_name = block_name+"_"+ entry_name
+            widget_name_string = block_name+"_"+ entry_name
 
-            view_data.widget_name = entry
-            #self.tp_data_obj.Widget_Change(Action_E.Create, frame_name, widget_name, widget_object = entry)
-            
+            # builtin way to access class attribute using String as name
+            setattr(view_data,widget_name_string, entry)
+
             current_grid_row +=1
-        
-        
+
     def create_row_options(self, view_data, frame, column_num):
         canvas = tk.Canvas(frame)
         canvas.configure(bd=3, relief="groove", highlightthickness=1)
@@ -254,7 +217,25 @@ class View(ttk.Frame):
         button_delete_row = ttk.Button(canvas, text="Delete Row")
         button_delete_row.config(command=lambda: self.delete_row_entry(button_delete_row))
         button_delete_row.pack()
+
+    ##############      Widget Actions     ######################## 
+    def handle_widget(self,action:Action_E,frame_name,widget_name,widget_object=None,widget_value=None):
+        """
+        Handle button click event
+        :return:
+        """
+        if self.controller:
+            self.controller.handle_widget_data()
+        return "Joka"
+
+    def open_hyberlink(entry_link:tk.Entry):
+        
+        link_text = entry_link.get()
             
+        if(link_text.startswith("http")):
+            webbrowser.open_new(link_text)
+
+    ##############      All Trip Actions     ######################## 
     def save_button_clicked(self):
         """
         Handle button click event
@@ -262,13 +243,13 @@ class View(ttk.Frame):
         """
         if self.controller:
             self.controller.save()
- 
-        
-    def open_hyberlink(entry_link:tk.Entry):
-        
-        link_text = entry_link.get()
-            
-        if(link_text.startswith("http")):
-            webbrowser.open_new(link_text)
-            
-        
+
+    ##############      Controller     ########################     
+    def set_controller(self, controller):
+        """
+        Set the controller
+        :param controller:
+        :return:
+        """
+        self.controller = controller
+     
