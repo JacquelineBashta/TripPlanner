@@ -31,9 +31,8 @@ class Controller:
         """
         try:
             for map_object in self.view_model_map_arr:
-                    values = map_object.view_data.get_view_data_values()
-                    print("Debug ---> " +  str(values) )
-                    map_object.model_data.set_model_data(values)
+                    values = map_object.view_data.get_all_view_data_value()
+                    map_object.model_data.set_all_model_data(values)
 
             # save the model to file
             self.model.save_all_model()
@@ -65,6 +64,5 @@ class Controller:
                     map_object.view_data.set_view_data_value(widget_name,widget_value)
                 elif action == Action_E.Get:
                     val = map_object.view_data.get_view_data_value(widget_name)
-                    print(val)
 
         return val

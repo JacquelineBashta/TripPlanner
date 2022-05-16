@@ -22,7 +22,7 @@ class ModelData:
         self.Notes               = ""
 
 
-    def set_model_data(self, value):
+    def set_all_model_data(self, value):
 
         self.From_Location       = value[0]
         self.From_Date           = value[1]
@@ -43,7 +43,7 @@ class ModelData:
 
 
 
-    def get_model_data(self):
+    def get_all_model_data(self):
 
         #TODO use the following implementation later
         value_obj_lst = vars(self).values()

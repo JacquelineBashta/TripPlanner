@@ -168,10 +168,9 @@ class View(ttk.Frame):
             entry.grid(row=current_grid_row, column=column_num+1,padx=Row_Pad, pady=Row_Pad)
             #entry.config(validate ="focusout", validatecommand =(self.register_validation, '%P'), font=Font_Small)
 
-            widget_name_string = block_name+"_"+ entry_name
+            widget_name = block_name+"_"+ entry_name
 
-            # builtin way to access class attribute using String as name
-            setattr(view_data,widget_name_string, entry)
+            view_data.init_view_data_object(widget_name,entry)
 
             current_grid_row +=1
 
