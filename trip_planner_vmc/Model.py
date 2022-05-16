@@ -21,11 +21,11 @@ class Model:
         else:
             raise ValueError(f'Invalid email address: {value}')
 
-    def save(self):
+    def save_all_model(self):
         """
         Save the email into a file
         :return:
         """
-        with open('emails.txt', 'a') as f:
-            f.write(self.email + '\n')
-            
+        # with open('emails.txt', 'a') as f:
+        #     f.write(self.email + '\n')
+

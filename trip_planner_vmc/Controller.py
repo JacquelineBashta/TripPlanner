@@ -23,7 +23,7 @@ class Controller:
         self.view = view
         self.view_model_map_arr = []
 
-    def save(self):
+    def save_all_view(self):
         """
         Save the view_data into model_data
         :param :
@@ -31,11 +31,12 @@ class Controller:
         """
         try:
             for map_object in self.view_model_map_arr:
-                    values = map_object.view_data.get_view_data("ALL")
-                    map_object.model_data.set_model_data("ALL",values)
+                    values = map_object.view_data.get_view_data_values()
+                    print("Debug ---> " +  str(values) )
+                    map_object.model_data.set_model_data(values)
 
-            # save the model
-            self.model.save()
+            # save the model to file
+            self.model.save_all_model()
 
             # show a success message
 
@@ -43,7 +44,7 @@ class Controller:
             # show an error message
             pass
 
-    def add_row_entry_data(self,view_data:ViewData, frame_name):
+    def add_row_data(self,view_data:ViewData, frame_name):
         model_data = ModelData()
         self.view_model_map_arr.append(ViewModelMap(frame_name,view_data,model_data))
 
@@ -58,11 +59,12 @@ class Controller:
 
     def handle_widget_data(self,action:Action_E, frame_name, widget_name, widget_value=None) -> str:
         val = ""
+        for map_object in self.view_model_map_arr:
+            if frame_name == map_object.frame_name:
+                if action == Action_E.Set:
+                    map_object.view_data.set_view_data_value(widget_name,widget_value)
+                elif action == Action_E.Get:
+                    val = map_object.view_data.get_view_data_value(widget_name)
+                    print(val)
 
-        if action == Action_E.Set:
-            pass
-        elif action == Action_E.Get:
-            pass
-        
         return val
-        

@@ -6,14 +6,14 @@ from Controller import Controller
 from Model import Model
 
 
-   
-   
+
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
 
         self.title('Trip Planner App')
-        self.geometry('1300x700')
+        #self.geometry('1300x700') #TODO return it back after debug
+        self.geometry('1100x400')
         self.wm_attributes("-topmost", 1)
 
         # create a model
