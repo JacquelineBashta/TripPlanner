@@ -58,7 +58,7 @@ class View(ttk.Frame):
         menubar.add_cascade(label ='File', menu = file)
         file.add_command(label ='New Trip', command = None)
         file.add_command(label ='Open...', command = None)
-        file.add_command(label ='Save', command =lambda: self.save_button_clicked)
+        file.add_command(label ='Save', command =lambda: self.save_button_clicked())
         file.add_separator()
         file.add_command(label ='Exit', command = self.master.destroy)
 
@@ -119,7 +119,7 @@ class View(ttk.Frame):
     def save_note_text(self,inputtxt:tk.Text,frame_note_butt:ttk.Button):
         
         note_text = inputtxt.get(1.0, "end-1c")
-        self.handle_widget(Action_E.Set, frame_note_butt.master.master.winfo_name(), "Notes", widget_value = note_text)
+        self.handle_widget(Action_E.Set, frame_note_butt.master.master.winfo_name(), widget_name = "Notes", widget_value = note_text)
         
         self.save_button_clicked()
 
@@ -219,14 +219,13 @@ class View(ttk.Frame):
         button_delete_row.pack()
 
     ##############      Widget Actions     ######################## 
-    def handle_widget(self,action:Action_E,frame_name,widget_name,widget_object=None,widget_value=None):
+    def handle_widget(self,action:Action_E, frame_name, widget_name, widget_value=None):
         """
         Handle button click event
         :return:
         """
         if self.controller:
-            self.controller.handle_widget_data()
-        return "Joka"
+           return self.controller.handle_widget_data(action, frame_name, widget_name, widget_value)
 
     def open_hyberlink(entry_link:tk.Entry):
         

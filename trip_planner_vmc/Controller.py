@@ -1,4 +1,5 @@
 from enum import Enum
+from webbrowser import get
 
 from ViewData import ViewData
 from ModelData import ModelData
@@ -29,9 +30,11 @@ class Controller:
         :return:
         """
         try:
+            for map_object in self.view_model_map_arr:
+                    values = map_object.view_data.get_view_data("ALL")
+                    map_object.model_data.set_model_data("ALL",values)
 
             # save the model
-            #self.model.email = email
             self.model.save()
 
             # show a success message
@@ -39,12 +42,11 @@ class Controller:
         except ValueError as error:
             # show an error message
             pass
-            
-        
+
     def add_row_entry_data(self,view_data:ViewData, frame_name):
         model_data = ModelData()
         self.view_model_map_arr.append(ViewModelMap(frame_name,view_data,model_data))
-    
+
     def delete_row_data(self,frame_name):
         ret = False
         for map_object in self.view_model_map_arr:
@@ -54,6 +56,13 @@ class Controller:
 
         return ret
 
-    
-    def handle_widget_data(self): #Widget_Change
-        pass
+    def handle_widget_data(self,action:Action_E, frame_name, widget_name, widget_value=None) -> str:
+        val = ""
+
+        if action == Action_E.Set:
+            pass
+        elif action == Action_E.Get:
+            pass
+        
+        return val
+        
