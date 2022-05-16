@@ -30,18 +30,24 @@ class Controller:
         :return:
         """
         try:
+            model_data_arr = []
             for map_object in self.view_model_map_arr:
                     values = map_object.view_data.get_all_view_data_value()
                     map_object.model_data.set_all_model_data(values)
+                    model_data_arr.append(map_object.model_data)
 
             # save the model to file
-            self.model.save_all_model()
+            self.model.save_all_model(model_data_arr)
 
             # show a success message
 
         except ValueError as error:
             # show an error message
             pass
+
+    def load_all_view(self):
+        self.model.load_all_model()
+
 
     def add_row_data(self,view_data:ViewData, frame_name):
         model_data = ModelData()

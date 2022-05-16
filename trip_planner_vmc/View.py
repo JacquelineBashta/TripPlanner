@@ -57,7 +57,7 @@ class View(ttk.Frame):
         file = tk.Menu(menubar, tearoff = 0)
         menubar.add_cascade(label ='File', menu = file)
         file.add_command(label ='New Trip', command = None)
-        file.add_command(label ='Open...', command = None)
+        file.add_command(label ='Open...', command =lambda: self.open_all_view_butt())
         file.add_command(label ='Save', command =lambda: self.save_all_view_butt())
         file.add_separator()
         file.add_command(label ='Exit', command = self.master.destroy)
@@ -238,6 +238,16 @@ class View(ttk.Frame):
         """
         if self.controller:
             self.controller.save_all_view()
+
+
+    def open_all_view_butt(self):
+        """
+        Handle Save button click event
+        :return:
+        """
+        if self.controller:
+            self.controller.load_all_view()
+
 
     ##############      Controller     ########################
     def set_controller(self, controller):
