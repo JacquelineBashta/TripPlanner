@@ -12,19 +12,19 @@ Font_Small = ("Comic Sans MS", 8, "normal")
 Font_Normal = ("Comic Sans MS", 10, "normal")
 Font_Bold = ("Comic Sans MS", 10, "bold")
 Row_Pad = 5
-
+#Window_Color = "lightgrey"
 
 class View(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
 
+        # local variables
+        self.window_color = "lightgrey"
+
         # create widgets
         self.main_frame = self.create_main_frame()
         self.file_menu = self.create_file_menu()
         self.summary_frame = self.create_summary_frame()
-
-        # local variables
-        self.window_color = "lightgrey"
 
         # set the controller
         self.controller = None
@@ -69,7 +69,7 @@ class View(ttk.Frame):
     def create_summary_frame(self):
         frame_summary = tk.Frame(self.main_frame)
         #TODO : add color bg=self.window_color,
-        frame_summary.configure( bd=3, relief="groove", highlightthickness=2)
+        frame_summary.configure(bg=self.window_color, bd=3, relief="groove", highlightthickness=2)
         frame_summary.pack()
 
         label_trip_duration = ttk.Label(frame_summary,text="Trip Duration: ",font=Font_Bold)
@@ -98,6 +98,7 @@ class View(ttk.Frame):
 
     ##############      Row Actions     ########################
     def add_row_entry(self):
+        #global Window_Color
         """
         Handle button click event
         :return:
