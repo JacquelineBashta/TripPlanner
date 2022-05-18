@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkcalendar import DateEntry
+import this
 #print(dir("tkinter"))
   
 def callback(input):

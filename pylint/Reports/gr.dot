@@ -1,0 +1,11 @@
+digraph "gr" {
+rankdir=LR
+charset="utf-8"
+URL="." node[shape="box"]
+"setuptools" [];
+"trip_planner_vmc.utils.setup" [];
+"tkcalendar.DateEntry" [];
+"trip_planner_vmc.View" [];
+"trip_planner_vmc.utils.setup" -> "setuptools" [];
+"trip_planner_vmc.View" -> "tkcalendar.DateEntry" [];
+}

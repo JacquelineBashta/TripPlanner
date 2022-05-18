@@ -1,0 +1,306 @@
+************* Module trip_planner_vmc.App
+trip_planner_vmc\App.py:36:0: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\App.py:38:0: C0304: Final newline missing (missing-final-newline)
+trip_planner_vmc\App.py:17:9: W0511: self.geometry('1300x700') #TODO return it back after debug (fixme)
+trip_planner_vmc\App.py:1:0: C0103: Module name "App" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\App.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\App.py:5:0: E0401: Unable to import 'View' (import-error)
+trip_planner_vmc\App.py:6:0: E0401: Unable to import 'Controller' (import-error)
+trip_planner_vmc\App.py:7:0: E0401: Unable to import 'Model' (import-error)
+trip_planner_vmc\App.py:12:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module trip_planner_vmc.Controller
+trip_planner_vmc\Controller.py:25:0: W0311: Bad indentation. Found 20 spaces, expected 16 (bad-indentation)
+trip_planner_vmc\Controller.py:26:0: W0311: Bad indentation. Found 20 spaces, expected 16 (bad-indentation)
+trip_planner_vmc\Controller.py:27:0: W0311: Bad indentation. Found 20 spaces, expected 16 (bad-indentation)
+trip_planner_vmc\Controller.py:1:0: C0103: Module name "Controller" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\Controller.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\Controller.py:4:0: E0401: Unable to import 'utils.Action_E' (import-error)
+trip_planner_vmc\Controller.py:5:0: E0401: Unable to import 'utils.ViewData' (import-error)
+trip_planner_vmc\Controller.py:6:0: E0401: Unable to import 'utils.ModelData' (import-error)
+trip_planner_vmc\Controller.py:7:0: E0401: Unable to import 'utils.ViewModelMap' (import-error)
+trip_planner_vmc\Controller.py:10:0: C0115: Missing class docstring (missing-class-docstring)
+trip_planner_vmc\Controller.py:34:8: W0612: Unused variable 'error' (unused-variable)
+trip_planner_vmc\Controller.py:38:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\Controller.py:39:8: W0612: Unused variable 'model_data_objs_arr' (unused-variable)
+trip_planner_vmc\Controller.py:42:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\Controller.py:46:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\Controller.py:55:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\Controller.py:2:0: W0611: Unused get imported from webbrowser (unused-import)
+************* Module trip_planner_vmc.Model
+trip_planner_vmc\Model.py:41:0: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\Model.py:53:32: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\Model.py:54:32: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\Model.py:59:0: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\Model.py:65:0: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\Model.py:69:0: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\Model.py:70:0: C0305: Trailing newlines (trailing-newlines)
+trip_planner_vmc\Model.py:1:0: C0103: Module name "Model" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\Model.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\Model.py:5:0: E0401: Unable to import 'utils.ModelData' (import-error)
+trip_planner_vmc\Model.py:7:0: C0103: Constant name "file_name" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+trip_planner_vmc\Model.py:9:0: C0115: Missing class docstring (missing-class-docstring)
+trip_planner_vmc\Model.py:14:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\Model.py:39:13: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+trip_planner_vmc\Model.py:30:4: R0201: Method could be a function (no-self-use)
+trip_planner_vmc\Model.py:57:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+trip_planner_vmc\Model.py:45:4: R0201: Method could be a function (no-self-use)
+************* Module trip_planner_vmc.View
+trip_planner_vmc\View.py:149:0: C0301: Line too long (106/100) (line-too-long)
+trip_planner_vmc\View.py:170:0: C0301: Line too long (115/100) (line-too-long)
+trip_planner_vmc\View.py:189:0: C0301: Line too long (112/100) (line-too-long)
+trip_planner_vmc\View.py:206:0: C0301: Line too long (102/100) (line-too-long)
+trip_planner_vmc\View.py:217:0: C0301: Line too long (133/100) (line-too-long)
+trip_planner_vmc\View.py:226:0: W0311: Bad indentation. Found 11 spaces, expected 12 (bad-indentation)
+trip_planner_vmc\View.py:232:0: C0325: Unnecessary parens after 'if' keyword (superfluous-parens)
+trip_planner_vmc\View.py:1:0: C0103: Module name "View" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\View.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\View.py:7:0: E0401: Unable to import 'utils.ViewData' (import-error)
+trip_planner_vmc\View.py:8:0: E0401: Unable to import 'utils.Action_E' (import-error)
+trip_planner_vmc\View.py:15:0: C0103: Constant name "Row_Pad" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+trip_planner_vmc\View.py:18:0: C0115: Missing class docstring (missing-class-docstring)
+trip_planner_vmc\View.py:18:0: R0901: Too many ancestors (8/7) (too-many-ancestors)
+trip_planner_vmc\View.py:18:0: R0902: Too many instance attributes (8/7) (too-many-instance-attributes)
+trip_planner_vmc\View.py:27:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+trip_planner_vmc\View.py:28:8: E1111: Assigning result of a function call, where the function has no return (assignment-from-no-return)
+trip_planner_vmc\View.py:34:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:53:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:61:52: W0108: Lambda may not be necessary (unnecessary-lambda)
+trip_planner_vmc\View.py:62:49: W0108: Lambda may not be necessary (unnecessary-lambda)
+trip_planner_vmc\View.py:70:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:136:15: C0121: Comparison 'self.controller.delete_row_data(widget.master.master.winfo_name()) == True' should be 'self.controller.delete_row_data(widget.master.master.winfo_name()) is True' if checking for the singleton value True, or 'self.controller.delete_row_data(widget.master.master.winfo_name())' if testing for truthiness (singleton-comparison)
+trip_planner_vmc\View.py:139:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:178:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:196:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:197:8: C0103: Variable name "newWindow" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\View.py:214:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:220:4: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
+trip_planner_vmc\View.py:228:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\View.py:228:4: R0201: Method could be a function (no-self-use)
+trip_planner_vmc\View.py:5:0: C0411: standard import "import webbrowser" should be placed before "from tkcalendar import DateEntry" (wrong-import-order)
+************* Module trip_planner_vmc.utils.Action_E
+trip_planner_vmc\utils\Action_E.py:5:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
+trip_planner_vmc\utils\Action_E.py:6:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
+trip_planner_vmc\utils\Action_E.py:7:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
+trip_planner_vmc\utils\Action_E.py:8:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
+trip_planner_vmc\utils\Action_E.py:9:0: C0304: Final newline missing (missing-final-newline)
+trip_planner_vmc\utils\Action_E.py:9:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
+trip_planner_vmc\utils\Action_E.py:1:0: C0103: Module name "Action_E" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\utils\Action_E.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\utils\Action_E.py:4:0: C0103: Class name "Action_E" doesn't conform to PascalCase naming style ('[^\\W\\da-z][^\\W_]+$' pattern) (invalid-name)
+trip_planner_vmc\utils\Action_E.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+trip_planner_vmc\utils\Action_E.py:5:5: C0103: Class constant name "Set" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\Action_E.py:6:5: C0103: Class constant name "Get" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\Action_E.py:7:5: C0103: Class constant name "Create" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\Action_E.py:8:5: C0103: Class constant name "Update" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\Action_E.py:9:5: C0103: Class constant name "Delete" doesn't conform to UPPER_CASE naming style ('([^\\W\\da-z][^\\Wa-z]*|__.*__)$' pattern) (invalid-name)
+************* Module trip_planner_vmc.utils.ModelData
+trip_planner_vmc\utils\ModelData.py:46:9: W0511: TODO use the following implementation later (fixme)
+trip_planner_vmc\utils\ModelData.py:1:0: C0103: Module name "ModelData" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\utils\ModelData.py:5:8: C0103: Attribute name "From_Location" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:6:8: C0103: Attribute name "From_Date" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:7:8: C0103: Attribute name "From_Time" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:8:8: C0103: Attribute name "To_Location" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:9:8: C0103: Attribute name "To_Date" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:10:8: C0103: Attribute name "To_Time" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:11:8: C0103: Attribute name "By_MeansOfTransport" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:12:8: C0103: Attribute name "By_LinkForOffer" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:13:8: C0103: Attribute name "By_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:14:8: C0103: Attribute name "Stay_Where" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:15:8: C0103: Attribute name "Stay_LinkForOffer" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:16:8: C0103: Attribute name "Stay_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:17:8: C0103: Attribute name "Misc_Weather" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:18:8: C0103: Attribute name "Misc_Currency" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:19:8: C0103: Attribute name "Misc_MobileData" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:20:8: C0103: Attribute name "Notes" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ModelData.py:2:0: C0115: Missing class docstring (missing-class-docstring)
+trip_planner_vmc\utils\ModelData.py:2:0: R0902: Too many instance attributes (16/7) (too-many-instance-attributes)
+trip_planner_vmc\utils\ModelData.py:23:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\utils\ModelData.py:44:4: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module trip_planner_vmc.utils.setup
+trip_planner_vmc\utils\setup.py:4:43: C0303: Trailing whitespace (trailing-whitespace)
+trip_planner_vmc\utils\setup.py:5:0: C0304: Final newline missing (missing-final-newline)
+trip_planner_vmc\utils\setup.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+************* Module trip_planner_vmc.utils.ViewData
+trip_planner_vmc\utils\ViewData.py:53:0: C0305: Trailing newlines (trailing-newlines)
+trip_planner_vmc\utils\ViewData.py:1:0: C0103: Module name "ViewData" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\utils\ViewData.py:5:8: C0103: Attribute name "From_Location" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:6:8: C0103: Attribute name "From_Date" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:7:8: C0103: Attribute name "From_Time" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:8:8: C0103: Attribute name "To_Location" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:9:8: C0103: Attribute name "To_Date" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:10:8: C0103: Attribute name "To_Time" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:11:8: C0103: Attribute name "By_MeansOfTransport" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:12:8: C0103: Attribute name "By_LinkForOffer" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:13:8: C0103: Attribute name "By_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:14:8: C0103: Attribute name "Stay_Where" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:15:8: C0103: Attribute name "Stay_LinkForOffer" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:16:8: C0103: Attribute name "Stay_Cost" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:17:8: C0103: Attribute name "Misc_Weather" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:18:8: C0103: Attribute name "Misc_Currency" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:19:8: C0103: Attribute name "Misc_MobileData" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:20:8: C0103: Attribute name "Notes" doesn't conform to snake_case naming style ('([^\\W\\dA-Z][^\\WA-Z]{2,}|_[^\\WA-Z]*|__[^\\WA-Z\\d_][^\\WA-Z]+__)$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewData.py:2:0: C0115: Missing class docstring (missing-class-docstring)
+trip_planner_vmc\utils\ViewData.py:2:0: R0902: Too many instance attributes (16/7) (too-many-instance-attributes)
+trip_planner_vmc\utils\ViewData.py:22:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\utils\ViewData.py:22:46: W0622: Redefining built-in 'object' (redefined-builtin)
+trip_planner_vmc\utils\ViewData.py:26:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\utils\ViewData.py:34:4: C0116: Missing function or method docstring (missing-function-docstring)
+trip_planner_vmc\utils\ViewData.py:45:4: C0116: Missing function or method docstring (missing-function-docstring)
+************* Module trip_planner_vmc.utils.ViewModelMap
+trip_planner_vmc\utils\ViewModelMap.py:7:0: C0304: Final newline missing (missing-final-newline)
+trip_planner_vmc\utils\ViewModelMap.py:1:0: C0103: Module name "ViewModelMap" doesn't conform to snake_case naming style ('[^\\W\\dA-Z][^\\WA-Z]*$' pattern) (invalid-name)
+trip_planner_vmc\utils\ViewModelMap.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+trip_planner_vmc\utils\ViewModelMap.py:3:0: C0115: Missing class docstring (missing-class-docstring)
+trip_planner_vmc\utils\ViewModelMap.py:3:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+
+
+Report
+======
+328 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |11     |11         |=          |18.18       |72.73    |
++---------+-------+-----------+-----------+------------+---------+
+|class    |8      |8          |=          |0.00        |12.50    |
++---------+-------+-----------+-----------+------------+---------+
+|method   |36     |36         |=          |47.22       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|function |0      |NC         |NC         |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    setuptools (trip_planner_vmc.utils.setup)
+    tkcalendar 
+      \-DateEntry (trip_planner_vmc.View)
+
+
+
+Modules dependencies graph
+--------------------------
+imports graph has been written to pylint/Reports/gr.dot
+external imports graph has been written to pylint/Reports/egr.dot
+internal imports graph has been written to pylint/Reports/igr.dot
+
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |355    |59.66 |353      |+2.00      |
++----------+-------+------+---------+-----------+
+|docstring |43     |7.23  |43       |=          |
++----------+-------+------+---------+-----------+
+|comment   |58     |9.75  |57       |+1.00      |
++----------+-------+------+---------+-----------+
+|empty     |139    |23.36 |140      |-1.00      |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |0        |0          |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |0.000    |=          |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |107    |107      |107        |
++-----------+-------+---------+-----------+
+|refactor   |9      |9        |9          |
++-----------+-------+---------+-----------+
+|warning    |19     |19       |19         |
++-----------+-------+---------+-----------+
+|error      |12     |12       |12         |
++-----------+-------+---------+-----------+
+
+
+
+Messages
+--------
+
++-------------------------------+------------+
+|message id                     |occurrences |
++===============================+============+
+|invalid-name                   |49          |
++-------------------------------+------------+
+|missing-function-docstring     |19          |
++-------------------------------+------------+
+|import-error                   |10          |
++-------------------------------+------------+
+|missing-module-docstring       |9           |
++-------------------------------+------------+
+|bad-indentation                |9           |
++-------------------------------+------------+
+|trailing-whitespace            |8           |
++-------------------------------+------------+
+|missing-class-docstring        |8           |
++-------------------------------+------------+
+|line-too-long                  |5           |
++-------------------------------+------------+
+|missing-final-newline          |4           |
++-------------------------------+------------+
+|too-many-instance-attributes   |3           |
++-------------------------------+------------+
+|no-self-use                    |3           |
++-------------------------------+------------+
+|unused-variable                |2           |
++-------------------------------+------------+
+|unspecified-encoding           |2           |
++-------------------------------+------------+
+|unnecessary-lambda             |2           |
++-------------------------------+------------+
+|trailing-newlines              |2           |
++-------------------------------+------------+
+|fixme                          |2           |
++-------------------------------+------------+
+|assignment-from-no-return      |2           |
++-------------------------------+------------+
+|wrong-import-order             |1           |
++-------------------------------+------------+
+|unused-import                  |1           |
++-------------------------------+------------+
+|too-many-ancestors             |1           |
++-------------------------------+------------+
+|too-few-public-methods         |1           |
++-------------------------------+------------+
+|superfluous-parens             |1           |
++-------------------------------+------------+
+|singleton-comparison           |1           |
++-------------------------------+------------+
+|redefined-builtin              |1           |
++-------------------------------+------------+
+|inconsistent-return-statements |1           |
++-------------------------------+------------+
+
+
+
+
+------------------------------------------------------------------
+Your code has been rated at 4.05/10 (previous run: 4.02/10, +0.04)
+

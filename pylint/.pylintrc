@@ -562,16 +562,16 @@ deprecated-modules=
 
 # Output a graph (.gv or any supported image format) of external dependencies
 # to the given file (report RP0402 must not be disabled).
-ext-import-graph=Reports/egr.dot
+ext-import-graph=pylint/Reports/egr.dot
 
 # Output a graph (.gv or any supported image format) of all (i.e. internal and
 # external) dependencies to the given file (report RP0402 must not be
 # disabled).
-import-graph=Reports/gr.dot
+import-graph=pylint/Reports/gr.dot
 
 # Output a graph (.gv or any supported image format) of internal dependencies
 # to the given file (report RP0402 must not be disabled).
-int-import-graph=Reports/igr.dot
+int-import-graph=pylint/Reports/igr.dot
 
 # Force import order to recognize a module as part of the standard
 # compatibility libraries.
