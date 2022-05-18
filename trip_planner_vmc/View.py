@@ -2,11 +2,12 @@
 import tkinter as tk
 from tkinter import ttk
 from tkcalendar import DateEntry
-
-from ViewData import ViewData
-from Controller import Action_E
-
 import webbrowser
+
+from utils.ViewData import ViewData
+from utils.Action_E import Action_E
+
+
 
 Font_Small = ("Comic Sans MS", 8, "normal")
 Font_Normal = ("Comic Sans MS", 10, "normal")
@@ -57,7 +58,7 @@ class View(ttk.Frame):
         file = tk.Menu(menubar, tearoff = 0)
         menubar.add_cascade(label ='File', menu = file)
         file.add_command(label ='New Trip', command = None)
-        file.add_command(label ='Open...', command =lambda: self.open_all_view_butt())
+        file.add_command(label ='Open...', command =lambda: self.load_all_view_butt())
         file.add_command(label ='Save', command =lambda: self.save_all_view_butt())
         file.add_separator()
         file.add_command(label ='Exit', command = self.master.destroy)
@@ -68,7 +69,6 @@ class View(ttk.Frame):
     ##############      Summary Frame     ########################
     def create_summary_frame(self):
         frame_summary = tk.Frame(self.main_frame)
-        #TODO : add color bg=self.window_color,
         frame_summary.configure(bg=self.window_color, bd=3, relief="groove", highlightthickness=2)
         frame_summary.pack()
 
@@ -184,6 +184,7 @@ class View(ttk.Frame):
         button_row_notes.config(command=lambda: self.open_note_window(button_row_notes))
         button_row_notes.pack()
 
+        #HACK: WorkAround,Fix it later
         view_data.Notes = tk.Entry()
         #self.tp_data_obj.Widget_Change(Action_E.Create, frame.winfo_name(), "Notes", widget_object= tk.Entry())
 
@@ -241,7 +242,7 @@ class View(ttk.Frame):
             self.controller.save_all_view()
 
 
-    def open_all_view_butt(self):
+    def load_all_view_butt(self):
         """
         Handle Save button click event
         :return:

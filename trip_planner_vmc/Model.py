@@ -1,9 +1,8 @@
-from collections import namedtuple
 import re
 import json
 import os
 
-from ModelData import ModelData
+from utils.ModelData import ModelData
 
 file_name = './Trips/trip_Tests_2.json'
 
@@ -66,6 +65,6 @@ class Model:
         
         print("Loaded")
 
-        return model_data_json_arr
+        return model_data_objs_arr
         
 
