@@ -36,10 +36,39 @@ class Controller:
             pass
 
     def load_all_view(self):
+        '''
+        retrun: number of enteries to create corrosponding view
+        '''
+        
+        #Clear old view first
+        if self.__is_view_exist() :
+            # Clear all entries
+            pass
+        
         model_data_objs_arr = self.model.load_all_model()
+        for model_obj in model_data_objs_arr:
+            
+            self.view_model_map_arr.append(ViewModelMap(None,None,model_obj))
+            self.view.add_row_entry()
+         
 
-
+    def __is_view_exist(self):
+        ret = False
+        if len(self.view_model_map_arr) != 0 :
+            ret = True
+        return ret
+        
     def add_row_data(self,view_data:ViewData, frame_name):
+        
+        for vm_map in self.view_model_map_arr:
+            if (vm_map.model_data != None and  
+                vm_map.frame_name == None and vm_map.view_data == None):
+                vm_map.frame_name = frame_name
+                vm_map.view_data = view_data
+                #sync
+                vm_map.view_data.set_all_view_data(vm_map.model_data.get_all_model_data())
+                return
+          
         model_data = ModelData()
         self.view_model_map_arr.append(ViewModelMap(frame_name,view_data,model_data))
 

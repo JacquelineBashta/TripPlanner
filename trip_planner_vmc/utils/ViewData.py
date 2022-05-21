@@ -23,6 +23,15 @@ class ViewData:
         setattr(self,attribute, object)
 
 
+    def set_all_view_data(self, value):
+        i = 0
+        for view_data_obj in vars(self).values():
+            view_data_obj.delete(0,'end')
+            view_data_obj.insert(0, value[i])
+            i +=1
+            
+        
+        
     def set_view_data_value(self, attribute, value):
         if attribute == "Notes":
             self.Notes.delete(0,'end')

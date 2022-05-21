@@ -14,12 +14,12 @@ class App(tk.Tk):
         super().__init__()
 
         self.title('Trip Planner App')
-        #self.geometry('1300x700') #TODO return it back after debug
-        self.geometry('1100x400')
+        self.geometry('1300x700') #TODO return it back after debug
+        #self.geometry('1100x400')
         self.wm_attributes("-topmost", 1)
 
         # create a model
-        model = Model('hello@pythontutorial.net')
+        model = Model('')
 
         # create a view and place it on the root window
         view = View(self)

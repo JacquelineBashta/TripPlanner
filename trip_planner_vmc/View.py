@@ -127,14 +127,18 @@ class View(ttk.Frame):
         if self.controller:
             self.controller.add_row_data(view_data,frame.winfo_name())
 
-    def delete_row_entry(self, widget:ttk.Button):
+    def delete_row_entry(self, widget):
         """
         delete the how row entry from view and database
         :return:
         """
         if self.controller:
-            if self.controller.delete_row_data(widget.master.master.winfo_name()) == True:
+            delete_controller_row_data =  self.controller.delete_row_data(widget.master.master.winfo_name())
+            if delete_controller_row_data == True:
                 widget.master.master.destroy()
+            else:
+                # TODO message report failure to user
+                pass
 
     def create_block(self,view_data:ViewData, frame, column_num:int, block_name:str, *entry_names):
 
@@ -248,8 +252,7 @@ class View(ttk.Frame):
         :return:
         """
         if self.controller:
-            self.controller.load_all_view()
-
+            row_entries_number = self.controller.load_all_view()
 
     ##############      Controller     ########################
     def set_controller(self, controller):

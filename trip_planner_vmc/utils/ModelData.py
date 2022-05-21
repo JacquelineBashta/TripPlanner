@@ -41,26 +41,7 @@ class ModelData:
 
 
 
-    def get_all_model_data(self):
+    def get_all_model_data(self): 
 
-        #TODO use the following implementation later
-        value_obj_lst = vars(self).values()
-        # value = []*16
-        # value[0] = self.From_Location
-        # value[1] = self.From_Date
-        # value[2] = self.From_Time
-        # value[3] = self.To_Location
-        # value[4] = self.To_Date
-        # value[5] = self.To_Time
-        # value[6] = self.By_MeansOfTransport
-        # value[7] = self.By_LinkForOffer
-        # value[8] = self.By_Cost
-        # value[9] = self.Stay_Where
-        # value[10] = self.Stay_LinkForOffer
-        # value[11] = self.Stay_Cost
-        # value[12] = self.Misc_Weather
-        # value[13] = self.Misc_Currency
-        # value[14] = self.Misc_MobileData
-        # value[15] = self.Note
-
+        value_obj_lst = list(vars(self).values())
         return value_obj_lst
